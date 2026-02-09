@@ -102,8 +102,7 @@
     .brand h1{
       margin: 0;
       font-family: var(--titleFont);
-      letter-spacing: .03em;
-      font-size: 18px;
+      font-size: 14px;
       line-height: 1;
       font-weight: 700;
       text-transform: lowercase;
@@ -135,7 +134,7 @@
     html[data-theme="wine"] .nav a{
       background: rgba(255,255,255,.06);
     }
-    .nav a:hover{ transform: translateY(-1px); }
+    .nav a:hover{ transform: translateY(-2px); }
 
     .actions{
       display: flex;
@@ -153,7 +152,7 @@
       border-radius: 999px;
       background: rgba(255,255,255,.7);
       transition: background .35s ease, border-color .35s ease;
-      font-size: 13px;
+      font-size: 10px;
       color: var(--muted);
       white-space: nowrap;
     }
@@ -161,11 +160,11 @@
       background: rgba(255,255,255,.06);
     }
     .dot{
-      width: 9px;
-      height: 9px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 6px var(--chip);
+      box-shadow: 0 0 0 4px var(--chip);
       transition: background .35s ease, box-shadow .35s ease;
     }
 
@@ -175,7 +174,7 @@
       color: var(--ink);
       border-radius: 999px;
       padding: 10px 12px;
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: .04em;
       cursor: pointer;
       transition: transform .15s ease, background .35s ease, border-color .35s ease;
@@ -422,7 +421,7 @@
             100 west lockwood ave, webster groves, MO 63119
           </p>
           <p>(314) 942 1216</p>
-          <p>info@thecloverandthebee.com</p>
+          <p>info@thecloverandthebee.com </p>
 
           <div class="meta">
             <div><b>breakfast</b><br>mon–thur 7am–11am</div>
@@ -814,9 +813,6 @@
 
 
     <section id="winebar" style="margin-top:34px;">
-      <h2 style="margin:0 0 10px;font-family:var(--titleFont);text-transform:lowercase;font-size:22px;">
-        the clover wine bar
-      </h2>
       <p style="margin:0 0 16px;color:var(--muted);line-height:1.6;">
 
       </p>
@@ -1108,7 +1104,7 @@
       if (food) food.classList.toggle("is-hidden", isWine);
       if (winebar) winebar.classList.toggle("is-hidden", !isWine);
 
-      const target = document.getElementById(isWine ? "winebar" : "food");
+      const target = document.getElementById(isWine ? "hero" : "hero");
       if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
