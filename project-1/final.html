@@ -229,7 +229,32 @@
      line-height: 1.1;
     }
 
+.hero-poem{
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.5);
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 70ch;
+}
 
+html[data-theme="wine"] .hero-poem{
+  background: rgba(255,255,255,.04);
+}
+
+.hero-poem p{
+  margin: 0;
+  font-size: 12px;
+}
+
+.hero-poem cite{
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  font-style: normal;
+}
     .hero p{
       margin: 0 0 12px;
       color: var(--muted);
