@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Clover & The Bee</title>
+  <link rel="icon" type="image/png" href="clover.png">
 
   <style>
     :root{
@@ -261,21 +262,8 @@ html[data-theme="wine"] .hero-card-media{
   display: block;
 }
 
-.hero-card-media img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-
-  opacity: 1;
-  transition: opacity .35s ease;
-}
-
-.hero-card-media img.is-fading{
-  opacity: 0;
-}
-
 @media (max-width: 720px){
+
   .hero-card-inner{
     grid-template-columns: 1fr;
   }
@@ -483,9 +471,6 @@ html[data-theme="wine"] .hero-card-media{
       </div>
     </div>
 
-    <div class="hero-card-media">
-      <img id="heroPhoto" src="brunch.png" alt="brunch menu" />
-    </div>
   </div>
 </div>
       </div>
