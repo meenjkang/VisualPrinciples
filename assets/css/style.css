@@ -144,16 +144,20 @@ a:hover {
   position: fixed;
   bottom: 0;
   left: -25px;
-  width: 140px;
+  width: 100px;
   z-index: 1000;
   transition:transform 0.3s ease;
+  -webkit-transition: transform 0.3s ease;
 }
 
 .snoopy-btn img {
   width: 100%;
+  height: auto;
   display: block;
+  max-width: 100px;
 }
 
 .snoopy-btn:hover {
   transform: translateY(-25px);
+  -webkit-transform: translateY(-25px);
 }
