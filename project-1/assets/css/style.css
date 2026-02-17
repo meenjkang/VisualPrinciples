@@ -64,27 +64,20 @@ a {
   color: var(--black);
   font-weight: 500;
   position: relative;
-  transition: color 0.3s ease;
 }
 
 a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -3px;
   width: 0%;
-  height: 2px;
   background: var(--accent);
-  transition: width 0.3s ease;
 }
 
 a:hover {
   color: var(--accent);
 }
 
-a:hover::after {
-  width: 100%;
-}
 
 @media (max-width: 600px) {
   body {
@@ -116,7 +109,6 @@ body > ul > li {
   margin-bottom: 0;
 }
 
-/* Box styling for numbers */
 body > ul > li > a {
   display: flex;
   align-items: center;
@@ -129,18 +121,14 @@ body > ul > li > a {
   transition: 
     border-color 0.3s ease,
     transform 0.2s ease,
-    background 0.3s ease,
     color 0.3s ease;
 }
 
-/* Keep your pink hover system */
 body > ul > li > a:hover {
   border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-3px);
 }
 
-/* FINAL button */
 body > ul > li:last-of-type {
   grid-column: 1 / -1;
   margin-top: 2rem;
