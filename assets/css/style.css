@@ -17,16 +17,15 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   background-color: var(--white);
   color: var(--black);
-  line-height: 1.6;
+  line-height: 1.2;
   padding: 4rem 8vw;
   max-width: 900px;
   text-align: center;
 }
 
 h1 {
-  font-family: "Pinyon Script";
   font-style:normal;
-  font-weight: 100; 
+  font-weight: 700; 
   line-height: 60px; 
   font-size: 3rem;
   letter-spacing: -1px;
@@ -41,7 +40,7 @@ p {
 
 hr {
   border: none;
-  height: 1px;
+  height: 1.5px;
   background: var(--light-gray);
   margin: 2.5rem 0;
 }
