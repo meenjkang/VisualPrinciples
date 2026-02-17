@@ -139,3 +139,21 @@ a:hover {
     gap: 40px;
   }
 }
+
+.snoopy-btn {
+  position: fixed;
+  bottom: 0;
+  left: -25px;
+  width: 140px;
+  z-index: 1000;
+  transition:transform 0.3s ease;
+}
+
+.snoopy-btn img {
+  width: 100%;
+  display: block;
+}
+
+.snoopy-btn:hover {
+  transform: translateY(-25px);
+}
