@@ -21,6 +21,7 @@ body {
   padding: 4rem 8vw;
   max-width: 900px;
   text-align: center;
+  margin: 0 auto; 
 }
 
 h1 {
