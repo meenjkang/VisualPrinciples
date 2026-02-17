@@ -3,8 +3,8 @@
   --dark-gray: #1a1a1a;
   --mid-gray: #888888;
   --light-gray: #a6a6a6;
-  --white: rgb(255, 255, 255);
-  --accent: #c3ceff;
+  --white: #ffffff;
+  --accent: #ff94db;
 }
 
 * {
@@ -161,4 +161,17 @@ a:hover {
 .snoopy-btn:hover {
   transform: translateY(-25px);
   -webkit-transform: translateY(-25px);
+}
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 179, 209, 0.658) 0%, rgba(249,179,209,0.15) 40%, rgba(249,179,209,0.05) 60%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: transform 0.08s ease-out;
 }
