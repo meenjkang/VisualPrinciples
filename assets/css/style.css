@@ -2,9 +2,9 @@
   --black: #111111;
   --dark-gray: #1a1a1a;
   --mid-gray: #888888;
-  --light-gray: #ffbfd2;
+  --light-gray: #a6a6a6;
   --white: rgb(255, 255, 255);
-  --accent: #f9b3d1;
+  --accent: #c3ceff;
 }
 
 * {
@@ -24,8 +24,11 @@ body {
 }
 
 h1 {
+  font-family: "Pinyon Script";
+  font-style:normal;
+  font-weight: 100; 
+  line-height: 60px; 
   font-size: 3rem;
-  font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: 0.5rem;
 }
