@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Red Tenda of Bologna</title>
+  <style>
+    :root {
+      --bg: #e7e2dc;
+      --ink: #1f1a17;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, serif;
+      background: var(--bg);
+      color: var(--ink);
+      /* vertical scroll enabled by default */
+    }
+
+    /* VERTICAL STACK */
+    .scroll-container {
+      display: block;
+      width: 100%;
+    }
+
+    .panel {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    /* SIMPLE FLAT PANELS */
+    .panel:nth-child(1) { background: #8f170d; color: white; }
+    .panel:nth-child(2) { background: #f5f1eb; }
+    .panel:nth-child(3) { background: #e0d6cc; }
+    .panel:nth-child(4) { background: #cbbfb3; }
+
+    h1 {
+      font-size: 4rem;
+      max-width: 600px;
+    }
+
+    p {
+      max-width: 500px;
+      font-size: 1.2rem;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="scroll-container">
+
+  <section class="panel">
+    <h1>The Red Tenda of Bologna</h1>
+  </section>
+
+  <section class="panel">
+    <p>panels.</p>
+  </section>
+
+  <section class="panel">
+    <p>panels.</p>
+  </section>
+
+  <section class="panel">
+    <p>text and images.</p>
+  </section>
+
+</div>
+
+</body>
+</html>
