@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>about.</title>
+  <style>
+    :root {
+      --bg: #efefef;
+      --ink: #1b1715;
+      --accent: #9f2a23;
+      --glass: rgba(255, 255, 255, 0.50);
+      --glass-border: rgba(255, 255, 255, 0.38);
+      --paper: rgba(222, 212, 199, 0.52);
+      --shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Fira Code', monospace;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      position: relative;
+      padding: 28px 26px;
+      overflow: hidden;
+    }
+
+    .about-heading {
+      width: min(300px, 28vw);
+      display: block;
+      margin-bottom: 1px;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .intro {
+      position: relative;
+      z-index: 2;
+      width: min(610px, 56vw);
+    }
+
+    .intro p {
+      font-size: clamp(10px, 1.2vw, 15px);
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .cards-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .card {
+      position: absolute;
+      width: 290px;
+      min-height: 180px;
+      padding: 22px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 3px;
+      box-shadow: var(--shadow);
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .card:active {
+      cursor: grabbing;
+    }
+
+    .card.paper {
+      background: var(--paper);
+      border-color: rgba(255, 255, 255, 0.88);
+    }
+
+    .card p {
+      font-size: 9px;
+      line-height: 1.55;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      max-width: 18ch;
+      opacity: 0.76;
+      pointer-events: none;
+      margin: 0 auto;
+    }
+
+    .home-link {
+      position: fixed;
+      right: 14px;
+      bottom: 12px;
+      z-index: 3;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: underline;
+      letter-spacing: 0.03em;
+    }
+
+    .card-1 { left: 46%; top: 36%; width: 600px; min-height: 320px; transform: rotate(10deg); }
+    .card-2 { left: 33%; top: 48%; width: 580px; min-height: 360px; transform: rotate(22deg); }
+    .card-3 { left: 57%; top: 42%; width: 600px; min-height: 330px; transform: rotate(5deg); }
+    .card-4 { left: 41%; top: 53%; width: 520px; min-height: 300px; transform: rotate(0deg); }
+    .card-5 { left: 24%; top: 70%; width: 600px; min-height: 320px; transform: rotate(1.5deg); }
+    .card-6 { left: 37%; top: 64%; width: 610px; min-height: 340px; transform: rotate(-5deg); }
+    .card-7 { left: 54%; top: 58%; width: 390px; min-height: 260px; transform: rotate(9deg); }
+
+    @media (max-width: 900px) {
+      .intro {
+        width: min(92vw, 620px);
+      }
+
+      .about-heading {
+        width: min(280px, 48vw);
+      }
+
+      .card {
+        width: 280px !important;
+        min-height: 180px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 18px;
+      }
+
+      .intro p {
+        font-size: 13px;
+      }
+
+      .about-heading {
+        width: 220px;
+      }
+
+      .card-1 { left: 40%; top: 42%; }
+      .card-2 { left: 18%; top: 54%; }
+      .card-3 { left: 50%; top: 48%; }
+      .card-4 { left: 26%; top: 58%; }
+      .card-5 { left: 8%; top: 72%; }
+      .card-6 { left: 26%; top: 78%; }
+      .card-7 { left: 56%; top: 68%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <img src="assets/about.png" alt="About" class="about-heading">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </section>
+
+    <section class="cards-stage" aria-label="note cards">
+      <article class="card card-1" style="z-index: 1;"><p>window / threshold / fragment / etc </p></article>
+      <article class="card card-2" style="z-index: 2;"><p>memory / city / afterimage /etc </p></article>
+      <article class="card card-3" style="z-index: 3;"><p>portico / weather / passage / etc</p></article>
+      <article class="card card-4" style="z-index: 4;"><p>uncle edgar / etc</p></article>
+      <article class="card card-5" style="z-index: 5;"><p> scrap / food / painting / etc</p></article>
+      <article class="card card-6 paper" style="z-index: 6;"><p>paper /  tendas / etc</p></article>
+      <article class="card card-7" style="z-index: 7;"><p>porticoes / drifting / etc</p></article>
+    </section>
+
+    <a class="home-link" href="redtenda.html">Home</a>
+  </main>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    let highestZ = 10;
+
+    cards.forEach((card) => {
+      let isDragging = false;
+      let startX = 0;
+      let startY = 0;
+      let initialLeft = 0;
+      let initialTop = 0;
+
+      const startDrag = (event) => {
+        isDragging = true;
+        highestZ += 1;
+        card.style.zIndex = highestZ;
+
+        const point = event.touches ? event.touches[0] : event;
+        const rect = card.getBoundingClientRect();
+
+        startX = point.clientX;
+        startY = point.clientY;
+        initialLeft = rect.left;
+        initialTop = rect.top;
+
+        card.style.left = `${initialLeft}px`;
+        card.style.top = `${initialTop}px`;
+        card.style.transform = 'rotate(0deg)';
+      };
+
+      const drag = (event) => {
+        if (!isDragging) return;
+        event.preventDefault();
+
+        const point = event.touches ? event.touches[0] : event;
+        const dx = point.clientX - startX;
+        const dy = point.clientY - startY;
+
+        card.style.left = `${initialLeft + dx}px`;
+        card.style.top = `${initialTop + dy}px`;
+      };
+
+      const endDrag = () => {
+        isDragging = false;
+      };
+
+      card.addEventListener('mousedown', startDrag);
+      card.addEventListener('touchstart', startDrag, { passive: false });
+      window.addEventListener('mousemove', drag, { passive: false });
+      window.addEventListener('touchmove', drag, { passive: false });
+      window.addEventListener('mouseup', endDrag);
+      window.addEventListener('touchend', endDrag);
+    });
+
+  </script>
+</body>
+</html>

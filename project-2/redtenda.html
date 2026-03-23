@@ -6,69 +6,423 @@
   <title>The Red Tenda of Bologna</title>
   <style>
     :root {
-      --bg: #e7e2dc;
-      --ink: #1f1a17;
+      --bg: #e8dfd4;
+      --ink: #171411;
+      --muted: #7a7066;
+      --square: #d9d9d9;
+      --awning: #8e1b16;
+      --border: rgba(23, 20, 17, 0.08);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
 
     body {
-      font-family: Georgia, serif;
+      min-height: 100vh;
       background: var(--bg);
       color: var(--ink);
-    }
-    .scroll-container {
-      display: block;
-      width: 100%;
+      font-family: 'Fira Code', monospace;
+      overflow-x: hidden;
     }
 
-    .panel {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
       width: 100%;
       min-height: 100vh;
+      padding: 2.5vw;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px;
     }
 
-    .panel:nth-child(1) { background: #8f170d; color: white; }
-    .panel:nth-child(2) { background: #f5f1eb; }
-    .panel:nth-child(3) { background: #e0d6cc; }
-    .panel:nth-child(4) { background: #cbbfb3; }
-
-    h1 {
-      font-size: 4rem;
-      max-width: 600px;
+    .canvas {
+      width: min(1280px, 92vw);
+      aspect-ratio: 1280 / 760;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
     }
 
-    p {
-      max-width: 500px;
-      font-size: 1.2rem;
+    .title {
+      position: absolute;
+      left: 3.3%;
+      top: 21%;
+      font-size: clamp(10px, 0.9vw, 14px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
+    .author {
+      position: absolute;
+      left: 24.5%;
+      top: 26.5%;
+      font-size: clamp(9px, 0.75vw, 12px);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .quote {
+      position: absolute;
+      right: 10.4%;
+      top: 7.6%;
+      width: 31%;
+      font-size: clamp(8px, 0.72vw, 12px);
+      line-height: 1.45;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .microcopy,
+    .memory,
+    .panel-copy {
+      font-size: clamp(7px, 0.62vw, 10px);
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      max-width: 100%;
+    }
+
+    .microcopy {
+      position: absolute;
+      left: 1.8%;
+      bottom: 12.2%;
+      width: 23%;
+    }
+
+    .memory {
+      position: absolute;
+      left: 64.4%;
+      bottom: 42.5%;
+      width: 14%;
+      color: rgba(23, 20, 17, 0.78);
+    }
+
+    .panel-copy {
+      position: absolute;
+      right: 5.5%;
+      bottom: 11.8%;
+      width: 22%;
+      text-align: left;
+    }
+
+    .shiver {
+      display: inline-block;
+      animation: tremor 2.9s steps(2, end) infinite;
+      will-change: transform;
+    }
+
+    .shiver:nth-child(2n) {
+      animation-duration: 3.6s;
+      animation-delay: -0.7s;
+    }
+
+    .shiver:nth-child(3n) {
+      animation-duration: 2.4s;
+      animation-delay: -1.1s;
+    }
+
+    .shiver:nth-child(5n) {
+      animation-duration: 4.3s;
+      animation-delay: 2s;
+    }
+
+    @keyframes tremor {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(0.6px, 3px); }
+    40% { transform: translate(-0.7px, 1.2px); }
+    60% { transform: translate(2px, 3.4px); }
+    80% { transform: translate(-0.6px, -0.7px); }
+    100% { transform: translate(0, 0); }
+    }
+
+    .windows {
+      position: absolute;
+      right: 13.8%;
+      top: 39.3%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .window-link {
+      position: relative;
+      width: clamp(38px, 3.2vw, 54px);
+      height: clamp(38px, 3.2vw, 54px);
+      display: block;
+      background: var(--square);
+      border: 1px solid rgba(23, 20, 17, 0.04);
+      transition: transform 0.12s linear;
+    }
+
+    .window-link::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: clamp(18px, 1.5vw, 26px);
+      height: 100%;
+      background: var(--awning);
+      clip-path: polygon(0 0, 100% 12%, 100% 88%, 0 100%);
+      transform-origin: left center;
+      transform: perspective(400px) rotateY(86deg);
+      opacity: 0.96;
+      transition: transform 0.18s linear;
+    }
+
+    .window-link:hover::before,
+    .window-link:focus-visible::before {
+      transform: perspective(400px) rotateY(0deg);
+    }
+
+    .window-link:hover,
+    .window-link:focus-visible {
+      transform: translateX(-2px);
+      outline: none;
+    }
+
+    .chapter-label {
+      position: absolute;
+      left: calc(100% + clamp(28px, 2.3vw, 42px));
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(8px, 0.7vw, 11px);
+      color: var(--awning);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .window-link:hover .chapter-label,
+    .window-link:focus-visible .chapter-label {
+      color: #6f120e;
+    }
+
+    .reading-page {
+      min-height: 100vh;
+      padding: 7vw 8vw;
+      background: #f2ece4;
+      border-top: 1px solid rgba(23, 20, 17, 0.08);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .reading-inner {
+      width: min(760px, 100%);
+    }
+
+    .reading-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    .reading-inner h2 {
+      font-size: clamp(28px, 3.2vw, 52px);
+      margin-bottom: 26px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .reading-inner p {
+      font-size: clamp(13px, 1.12vw, 18px);
+      line-height: 1.85;
+      margin-bottom: 18px;
+      max-width: 66ch;
+    }
+
+    @media (max-width: 900px) {
+      .canvas {
+        aspect-ratio: auto;
+        min-height: 86vh;
+      }
+
+      .quote {
+        right: 7%;
+        width: 42%;
+      }
+
+      .windows {
+        right: 20%;
+        top: 41%;
+      }
+
+      .panel-copy {
+        width: 28%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 12px;
+      }
+
+      .canvas {
+        width: 100%;
+        min-height: 92vh;
+      }
+
+      .title {
+        left: 6%;
+        top: 12%;
+      }
+
+      .author {
+        left: 42%;
+        top: 15.5%;
+      }
+
+      .quote {
+        top: 6.5%;
+        right: 6%;
+        width: 48%;
+      }
+
+      .windows {
+        right: 24%;
+        top: 36%;
+      }
+
+      .microcopy {
+        left: 6%;
+        width: 38%;
+        bottom: 10%;
+      }
+
+      .panel-copy {
+        right: 6%;
+        width: 30%;
+        bottom: 10%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shiver {
+        animation: none;
+      }
+
+      .window-link,
+      .window-link::before {
+        transition: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <main>
+    <section class="page" id="home">
+      <div class="canvas">
+        <div class="title"><span class="shiver">THE RED TENDA OF BOLOGNA</span></div>
+        <div class="author"><span class="shiver">BY JOHN BERGER</span></div>
 
-<div class="scroll-container">
+        <div class="quote">
+          <span class="shiver">“IT'S AN IMPROBABLE CITY, BOLOGNA — LIKE ONE YOU MIGHT WALK THROUGH AFTER YOU HAVE DIED.”</span>
+        </div>
 
-  <section class="panel">
-    <h1>The Red Tenda of Bologna</h1>
-  </section>
+        <div class="windows" aria-label="chapters">
+        <a class="window-link" href="about.html">
+            <span class="chapter-label">about</span>
+          </a>
+        <a class="window-link" href="chapter-1.html"></a>
+            <span class="chapter-label">CHAPTER 1</span>
+          </a>
+        <a class="window-link" href="chapter-2.html"></a>
+            <span class="chapter-label">CHAPTER 2</span>
+          </a>
+        </div>
 
-  <section class="panel">
-    <p>panels.</p>
-  </section>
+        <div class="microcopy">
+          <span class="shiver">A</span>
+          <span class="shiver">DREAMLIKE</span>
+          <span class="shiver">MEDITATION</span>
+          <span class="shiver">ON</span>
+          <span class="shiver">MEMORY,</span>
+          <span class="shiver">FOOD,</span>
+          <span class="shiver">PAINTINGS,</span>
+          <span class="shiver">AND</span>
+          <span class="shiver">UNCLE</span>
+          <span class="shiver">EDGAR,</span>
+          <span class="shiver">FROM</span>
+          <span class="shiver">THE</span>
+          <span class="shiver">BEAUTY</span>
+          <span class="shiver">OF</span>
+          <span class="shiver">BOLOGNA</span>
+          <span class="shiver">TO</span>
+          <span class="shiver">THE</span>
+          <span class="shiver">VISIONARY</span>
+          <span class="shiver">HEART</span>
+          <span class="shiver">AND</span>
+          <span class="shiver">ART</span>
+          <span class="shiver">OF</span>
+          <span class="shiver">THE</span>
+          <span class="shiver">CRITIC.</span>
+        </div>
 
-  <section class="panel">
-    <p>panels.</p>
-  </section>
+        <div class="memory">
+          <span class="shiver">BOLOGNA,</span>
+          <span class="shiver">REFLECTION,</span>
+          <span class="shiver">THE</span>
+          <span class="shiver">IDEA</span>
+          <span class="shiver">OF</span>
+          <span class="shiver">WINDOWS</span>
+          <span class="shiver">THAT</span>
+          <span class="shiver">OPEN</span>
+          <span class="shiver">AS</span>
+          <span class="shiver">IF</span>
+          <span class="shiver">THEY</span>
+          <span class="shiver">HAVE</span>
+          <span class="shiver">BEEN</span>
+          <span class="shiver">WAITING.</span>
+        </div>
 
-  <section class="panel">
-    <p>text and images.</p>
-  </section>
+        <div class="panel-copy">
+          <span class="shiver">A</span>
+          <span class="shiver">BOOK</span>
+          <span class="shiver">ABOUT</span>
+          <span class="shiver">AFTERLIFE,</span>
+          <span class="shiver">MEMORY,</span>
+          <span class="shiver">LANGUAGE,</span>
+          <span class="shiver">AND</span>
+          <span class="shiver">THE</span>
+          <span class="shiver">CITY</span>
+          <span class="shiver">AS</span>
+          <span class="shiver">A</span>
+          <span class="shiver">THRESHOLD.</span>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="reading-page" id="about">
+      <div class="reading-inner">
+        <div class="reading-kicker">about</div>
+      </div>
+    </section>
 
+    <section class="reading-page" id="chapter-2">
+      <div class="reading-inner">
+        <div class="reading-kicker">chapter 2</div>
+        </div>
+    </section>
+
+    <section class="reading-page" id="chapter-3">
+      <div class="reading-inner">
+        <div class="reading-kicker">chapter 3</div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
