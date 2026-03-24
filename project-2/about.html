@@ -9,9 +9,9 @@
       --bg: #efefef;
       --ink: #1b1715;
       --accent: #9f2a23;
-      --glass: rgba(255, 255, 255, 0.50);
+      --glass: rgba(255, 255, 255, 0.30);
       --glass-border: rgba(255, 255, 255, 0.38);
-      --paper: rgba(222, 212, 199, 0.52);
+      --paper: rgba(222, 212, 199, 0.42);
       --shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
     }
 
@@ -60,7 +60,7 @@
     }
 
     .intro p {
-      font-size: clamp(10px, 1.2vw, 15px);
+      font-size: 10px;
       line-height: 1.3;
       text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -75,14 +75,14 @@
 
     .card {
       position: absolute;
-      width: 290px;
-      min-height: 180px;
-      padding: 22px;
+      width: 290px;           
+      min-height: 160px;
+      padding: 65px;
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 3px;
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 4px;
       box-shadow: var(--shadow);
       cursor: grab;
       user-select: none;
@@ -117,20 +117,22 @@
       right: 14px;
       bottom: 12px;
       z-index: 3;
-      font-size: 10px;
+      font-size: 16px;
       text-transform: uppercase;
       color: var(--accent);
       text-decoration: underline;
       letter-spacing: 0.03em;
     }
 
-    .card-1 { left: 46%; top: 36%; width: 600px; min-height: 320px; transform: rotate(10deg); }
-    .card-2 { left: 33%; top: 48%; width: 580px; min-height: 360px; transform: rotate(22deg); }
-    .card-3 { left: 57%; top: 42%; width: 600px; min-height: 330px; transform: rotate(5deg); }
-    .card-4 { left: 41%; top: 53%; width: 520px; min-height: 300px; transform: rotate(0deg); }
-    .card-5 { left: 24%; top: 70%; width: 600px; min-height: 320px; transform: rotate(1.5deg); }
-    .card-6 { left: 37%; top: 64%; width: 610px; min-height: 340px; transform: rotate(-5deg); }
-    .card-7 { left: 54%; top: 58%; width: 390px; min-height: 260px; transform: rotate(9deg); }
+    .card-1 { left: 46%; top: 36%; transform: rotate(10deg); }
+    .card-2 { left: 13%; top: 48%; transform: rotate(22deg); }
+    .card-3 { left: 57%; top: 42%; transform: rotate(5deg); }
+    .card-4 { left: 41%; top: 53%; transform: rotate(0deg); }
+    .card-5 { left: 24%; top: 70%; transform: rotate(1.5deg); }
+    .card-6 { left: 37%; top: 64%; transform: rotate(-5deg); }
+    .card-7 { left: 54%; top: 58%; transform: rotate(9deg); }
+    .card-8 { left:32%; top:45%; transform: rotate(2deg); }
+    .card-9 { left: 20%; top: 28%; transform: rotate(-20deg); }
 
     @media (max-width: 900px) {
       .intro {
@@ -138,7 +140,7 @@
       }
 
       .about-heading {
-        width: min(280px, 48vw);
+        width: min(500px, 40vw);
       }
 
       .card {
@@ -153,7 +155,7 @@
       }
 
       .intro p {
-        font-size: 13px;
+        font-size: 10px;
       }
 
       .about-heading {
@@ -175,18 +177,20 @@
     <section class="intro">
       <img src="assets/about.png" alt="About" class="about-heading">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+        I should begin with how I loved him, in what manner, to what degree, with what kind of incomprehension. Edgar was my father's eldest brother, born in the 80s of the nineteenth century at the time when Queen Victoria became Empress of India. When first he came to live with us, I was about ten years old and he was in his mid-fifties. Yet I thought of him as ageless. Not unchanging, certainly not immortal, but ageless because unanchored in any period, past or future. And so, as a kid, I could love him as an equal. Which I did. He and I seldom embraced or touched one another, our most intimate contact was made through gifts. Here is a random list of some of the gifts we exchanged. 
+    </p>
     </section>
 
     <section class="cards-stage" aria-label="note cards">
-      <article class="card card-1" style="z-index: 1;"><p>window / threshold / fragment / etc </p></article>
-      <article class="card card-2" style="z-index: 2;"><p>memory / city / afterimage /etc </p></article>
-      <article class="card card-3" style="z-index: 3;"><p>portico / weather / passage / etc</p></article>
-      <article class="card card-4" style="z-index: 4;"><p>uncle edgar / etc</p></article>
-      <article class="card card-5" style="z-index: 5;"><p> scrap / food / painting / etc</p></article>
-      <article class="card card-6 paper" style="z-index: 6;"><p>paper /  tendas / etc</p></article>
-      <article class="card card-7" style="z-index: 7;"><p>porticoes / drifting / etc</p></article>
+      <article class="card card-1" style="z-index: 1;"><p>a knife for opening envelopes. </p></article>
+      <article class="card card-2" style="z-index: 2;"><p>a packet of breton galette. </p></article>
+      <article class="card card-3" style="z-index: 3;"><p>a map of iceland.</p></article>
+      <article class="card card-4" style="z-index: 4;"><p>a pair of motorbike goggles.</p></article>
+      <article class="card card-5" style="z-index: 5;"><p>a paperback edition of spinoza's ethics.</p></article>
+      <article class="card card-6 paper" style="z-index: 6;"><p>one and a half dozen whitstable oysters.</p></article>
+      <article class="card card-7" style="z-index: 7;"><p>a biography of dickens.</p></article>
+      <article class="card card-8" style="z-index: 3;"><p>a matchbox full of egyptian sand.</p></article>
+      <article class="card card-9" style="z-index: 2;"><p>a bottle of tequila, the eau de vie of the desert from mexico.</p></article>
     </section>
 
     <a class="home-link" href="redtenda.html">Home</a>
@@ -218,7 +222,6 @@
 
         card.style.left = `${initialLeft}px`;
         card.style.top = `${initialTop}px`;
-        card.style.transform = 'rotate(0deg)';
       };
 
       const drag = (event) => {
