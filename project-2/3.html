@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3</title>
+  <style>
+    :root {
+      --bg: #ddd2c6;
+      --ink: #2d2824;
+      --accent: #9a1f1b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Fira Code', monospace;
+      color: var(--ink);
+      overflow: hidden;
+    }
+
+    .page {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .building-wrap {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: min(26vw, 360px);
+      min-width: 180px;
+      z-index: 1;
+    }
+
+    .building {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .text-block {
+      position: absolute;
+      top: 24%;
+      left: 50%;
+      width: min(35vw, 490px);
+      min-width: 260px;
+      z-index: 2;
+    }
+
+    .text-block p {
+      font-size: 10px;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .awning {
+      position: absolute;
+      left: 84%;
+      bottom: 64.5%;
+      width: 22%;
+      height: 8%;
+      background: #9a1f1b;
+      opacity: 0.65;
+      border-radius: 1000px;
+      clip-path: polygon(
+        8% 58%,
+        2% 0%,
+        162% 8%,
+        200% 64%,
+        194% 72%,
+        70% 80%,
+        48% 74%,
+        2% 52%,
+        0% 48%,
+        4% 28%
+      );
+      transform: translate(-50%, 50%) rotate(-18deg);
+      transform-origin: center;
+      animation: wobble 4.5s ease-in-out infinite;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .awning:hover {
+      transform: translate(-50%, 50%) rotate(-18deg) scale(1.08);
+    }
+
+    .home-link {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      z-index: 3;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: underline;
+      letter-spacing: 0.03em;
+    }
+
+    @keyframes wobble {
+      0% {
+        transform: translate(-50%, 50%) rotate(-18deg) scale(1);
+      }
+      25% {
+        transform: translate(-50%, 50%) rotate(-14deg) scale(1.03, 0.98);
+      }
+      50% {
+        transform: translate(-50%, 50%) rotate(-20deg) scale(0.98, 1.04);
+      }
+      75% {
+        transform: translate(-50%, 50%) rotate(-16deg) scale(1.02, 1);
+      }
+      100% {
+        transform: translate(-50%, 50%) rotate(-18deg) scale(1);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .building-wrap {
+        width: min(32vw, 280px);
+      }
+
+      .text-block {
+        top: 22%;
+        left: 46%;
+        width: min(42vw, 360px);
+      }
+
+      .text-block p {
+        font-size: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="building-wrap">
+      <img src="assets/building.png" alt="" class="building">
+      <a href="4.html" class="awning"></a>
+    </div>
+
+    <div class="text-block">
+      <p>
+        By this time I was at art school and so I mentioned to him that Bologna was the city of Morandi. And no sooner had I said this, than I saw in a flash that he and Morandi could well put on and wear each other's shoes without either of them noticing the difference! Neither of them were married: both of them had lived at various times with a spinster sister. Their noses and mouths had the same expression of seeking an intimacy that is not carnal. The two of them liked solitary walks and both were continually curious about what they saw as they walked. The difference between them was that Morandi was an obsessional, great artist and my Uncle, who was no artist, was a passionate letter writer. To have said any of this would have been an impertinence, and so I simply repeated several times that he should look at Morandi's paintings when he went to Bologna.
+      </p>
+
+      <p>
+        He's a very quiet man Morandi, my Uncle told me on his return.
+      </p>
+
+      <p>
+        What do you mean? He's dead. He died last year.
+      </p>
+
+      <p>
+        I know. I only saw his pictures of pots and shells and flowers.
+      </p>
+
+      <p>
+        Very careful and very quiet. He could have been an architect too, wouldn't you say?
+      </p>
+
+      <p>
+        Yes, an architect.
+      </p>
+
+      <p>
+        Or a tailor!
+      </p>
+
+      <p>
+        Yes, a tailor. Did you like the city?
+      </p>
+
+      <p>
+        It's red, I've never seen a red like Bologna's. Ah! If we knew the secret of that red... It's a city to return to, la proxima volta.
+      </p>
+    </div>
+
+    <a class="home-link" href="redtenda.html">Home</a>
+  </main>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Red Tenda of Bologna</title>
+  <title>the red tenda of bologna</title>
   <style>
     :root {
       --bg: #e8dfd4;
@@ -56,9 +56,10 @@
 
     .title {
       position: absolute;
-      left: 3.3%;
+      left: 23%;
       top: 21%;
-      font-size: clamp(10px, 0.9vw, 14px);
+      font-size: clamp(14px, 0.9vw, 17px);
+      font-style: bold;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -66,7 +67,7 @@
 
     .author {
       position: absolute;
-      left: 24.5%;
+      left: 23%;
       top: 26.5%;
       font-size: clamp(9px, 0.75vw, 12px);
       text-transform: uppercase;
@@ -156,58 +157,52 @@
       gap: 10px;
     }
 
-    .window-link {
-      position: relative;
-      width: clamp(38px, 3.2vw, 54px);
-      height: clamp(38px, 3.2vw, 54px);
-      display: block;
-      background: var(--square);
-      border: 1px solid rgba(23, 20, 17, 0.04);
-      transition: transform 0.12s linear;
-    }
+.window-link {
+  position: relative;
+  width: 64px;
+  height: 58px;
+  display: block;
+  background: #8e1b16;
+  border: none;
+  border-radius: 44% 56% 51% 49% / 55% 39% 61% 45%;
 
-    .window-link::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: clamp(18px, 1.5vw, 26px);
-      height: 100%;
-      background: var(--awning);
-      clip-path: polygon(0 0, 100% 12%, 100% 88%, 0 100%);
-      transform-origin: left center;
-      transform: perspective(400px) rotateY(86deg);
-      opacity: 0.96;
-      transition: transform 0.18s linear;
-    }
+  animation: wobble 2.5s ease-in-out infinite;
+}
+@keyframes wobble {
+  0% {
+    border-radius: 44% 56% 51% 49% / 55% 39% 61% 45%;
+    transform: rotate(-10deg) scale(1);
+  }
+  25% {
+    border-radius: 52% 48% 58% 42% / 47% 61% 39% 53%;
+    transform: rotate(-4deg) scale(1.03, 0.98);
+  }
+  50% {
+    border-radius: 39% 61% 46% 54% / 58% 43% 57% 42%;
+    transform: rotate(-9deg) scale(0.98, 1.04);
+  }
+  75% {
+    border-radius: 57% 43% 49% 51% / 41% 55% 45% 59%;
+    transform: rotate(-5deg) scale(1.02, 1);
+  }
+  100% {
+    border-radius: 44% 56% 51% 49% / 55% 39% 61% 45%;
+    transform: rotate(-10deg) scale(1);
+  }
+}
 
-    .window-link:hover::before,
-    .window-link:focus-visible::before {
-      transform: perspective(400px) rotateY(0deg);
-    }
-
-    .window-link:hover,
-    .window-link:focus-visible {
-      transform: translateX(-2px);
-      outline: none;
-    }
-
-    .chapter-label {
-      position: absolute;
-      left: calc(100% + clamp(28px, 2.3vw, 42px));
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: clamp(8px, 0.7vw, 11px);
-      color: var(--awning);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
-
-    .window-link:hover .chapter-label,
-    .window-link:focus-visible .chapter-label {
-      color: #6f120e;
-    }
+.chapter-label {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translateX(-50%);
+  font-size: clamp(8px, 0.7vw, 11px);
+  color: #8e1b16;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  
+}
 
     .reading-page {
       min-height: 100vh;
@@ -315,10 +310,6 @@
         animation: none;
       }
 
-      .window-link,
-      .window-link::before {
-        transition: none;
-      }
     }
   </style>
 </head>
@@ -334,14 +325,8 @@
         </div>
 
         <div class="windows" aria-label="chapters">
-        <a class="window-link" href="about.html">
-            <span class="chapter-label">about</span>
-          </a>
-        <a class="window-link" href="chapter-1.html"></a>
-            <span class="chapter-label">CHAPTER 1</span>
-          </a>
-        <a class="window-link" href="chapter-2.html"></a>
-            <span class="chapter-label">CHAPTER 2</span>
+        <a class="window-link" href="intro.html">
+            <span class="chapter-label">press the 'bologna' red to navigate</span>
           </a>
         </div>
 
@@ -403,24 +388,6 @@
           <span class="shiver">A</span>
           <span class="shiver">THRESHOLD.</span>
         </div>
-      </div>
-    </section>
-
-    <section class="reading-page" id="about">
-      <div class="reading-inner">
-        <div class="reading-kicker">about</div>
-      </div>
-    </section>
-
-    <section class="reading-page" id="chapter-2">
-      <div class="reading-inner">
-        <div class="reading-kicker">chapter 2</div>
-        </div>
-    </section>
-
-    <section class="reading-page" id="chapter-3">
-      <div class="reading-inner">
-        <div class="reading-kicker">chapter 3</div>
       </div>
     </section>
   </main>

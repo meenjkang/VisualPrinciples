@@ -12,10 +12,11 @@
     }
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 
     html,
     body {
@@ -35,73 +36,66 @@
       background: var(--bg);
       overflow: hidden;
     }
+  
 
-.edgar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 320px;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+    .edgar-wrap {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1020px;
+      height: 1020px;
+      pointer-events: auto;
+      z-index: 0;
+      overflow: visible;
+    }
+
+    .edgar-img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 720px;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      opacity: 1;
+      animation: flicker 2.5s ease-in-out infinite;
+    }
+    @keyframes flicker {
+  0%, 100% { opacity: 0.95; }
+  10% { opacity: 0.2; }
+  20% { opacity: 0.9; }
+  35% { opacity: 0.6; }
+  50% { opacity: 0.22; }
+  65% { opacity: 0.75; }
+  80% { opacity: 0.58; }
+  90% { opacity: 0.7; }
 }
 
-.edgar {
-  position: absolute;
-  top: 0;
-  left: 100;
-  width: 960px;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
-  opacity: 1;
-  animation: edgar-flicker 5.8s steps(1, end) infinite;
-}
-
-@keyframes edgar-flicker {
-  0% { opacity: 1; }
-  8% { opacity: 0.65; }
-  12% { opacity: 1; }
-  29% { opacity: 0.35; }
-  33% { opacity: 1; }
-  61% { opacity: 0.1; }
-  66% { opacity: 0.92; }
-  84% { opacity: 0.25; }
-  88% { opacity: 1; }
-  100% { opacity: 1; }
-}
     .content {
       position: relative;
       z-index: 2;
-      min-height: 100vh;
-      padding: 0 28px 72px;
+       height: 150vh;
+      padding: 0 10px;
     }
 
     .film {
       display: block;
       width: 54%;
       max-width: 560px;
-      margin-top: 20px;
-      margin-left: 0;
       user-select: none;
       -webkit-user-drag: none;
     }
 
-    .text-block {
-      margin-top: 60px;
-      margin-left: 26px;
-      width: min(520px, 42vw);
-      color: var(--ink);
-      font-size: 12px;
-      line-height: 1.55;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
+.text-block {
+  margin-top: 60px;
+  width: min(760px, 62vw);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.55;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
 
-    .text-block p {
-      margin-bottom: 22px;
-    }
 
     .home-link {
       position: absolute;
@@ -117,23 +111,16 @@
 
     @media (max-width: 500px) {
       .film {
-        width: 68%;
+        width: 48%;
       }
 
       .text-block {
         width: min(520px, 62vw);
       }
-
     }
 
-    @media (max-width: 500px) {
-      .page {
-        margin: 12px;
-      }
+    @media (max-width: 400px) {
 
-      .content {
-        padding: 0 14px 56px;
-      }
 
       .film {
         width: 100%;
@@ -141,27 +128,37 @@
       }
 
       .text-block {
-        margin-top: 34px;
-        margin-left: 8px;
         width: calc(100% - 16px);
         font-size: 10px;
       }
+
+      .edgar-wrap {
+        width: 180px;
+        height: 180px;
+      }
+
+      .edgar-img {
+        width: 540px;
+      }
     }
+
   </style>
 </head>
 <body>
   <main class="page">
-    <div class="edgar" aria-hidden="true">
-      <img src="assets/edgar.png" alt="" class="edgar">
+    <div class="edgar-wrap" aria-hidden="true">
+      <img src="assets/edgar.png" alt="" class="edgar-img">
     </div>
 
     <div class="content">
-      <img src="assets/film.png" alt=" film still" class="film">
-
+      <img src="assets/DSC00744.jpg" alt="film still" class="film">
+<a href="2.html" class="edgar-wrap">
+  <img src="assets/edgar.png" alt="" class="edgar-img">
+</a>
       <section class="text-block">
         <p>
-I also loved him for his imperturbability. He believed in general and in principle that the best was to come. A belief hard to sustain during the twentieth century, if one didn't close one's eyes. And he carried with him everywhere three pairs of spectacles - each pair with different lenses. He examined everything. He died in 1972.
-Was he the most compliant man I've ever met, or the most persistent and independent? Perhaps he was both. He was never where you expected him to be.        </p>
+          I also loved him for his imperturbability. He believed in general and in principle that the best was to come. A belief hard to sustain during the twentieth century, if one didn't close one's eyes. And he carried with him everywhere three pairs of spectacles - each pair with different lenses. He examined everything. He died in 1972. Was he the most compliant man I've ever met, or the most persistent and independent? Perhaps he was both. He was never where you expected him to be. Whenever I stood beside him - in the figurative or physical sense - I felt reassured. Time will tell, he used to say, and he said this in such a way that I assumed time would tell what we'd both be finally glad to hear.
+        </p>
       </section>
     </div>
 
