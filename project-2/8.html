@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8</title>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #8b261e;
+    }
+    
+  </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8</title>
+  <style>
+    :root {
+      --bg: #980000;
+      --text: #f5efe6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+body {
+  font-family: "Fira Code", monospace;
+  color: var(--text);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 1400px;
+  background: var(--bg);
+}
+
+    .text-block {
+      position: absolute;
+      font-size: clamp(11px, 1.15vw, 16px);
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      white-space: pre-line;
+      max-width: min(44vw, 560px);
+    }
+
+ .top-left {
+  top: 70px;
+  left: 3vw;
+  width: min(76vw, 1120px);
+  max-width: none;
+  font-size: clamp(13px, 1.7vw, 20px);
+  line-height: 1.38;
+}
+
+.middle-right {
+  top: 470px;
+  right: 4vw;
+  width: min(34vw, 430px);
+  text-align: right;
+}
+
+.middle-left {
+  top: 650px;
+  left: 4vw;
+  width: min(43vw, 560px);
+}
+
+.bottom-right {
+  top: 1050px;
+  right: 4vw;
+  width: min(36vw, 460px);
+  text-align: right;
+}
+
+.bottom-left {
+  top: 1280px;
+  left: 4vw;
+  width: min(40vw, 520px);
+}
+
+    .bubble-wrap {
+      position: fixed;
+      left: 50%;
+      bottom: -180px;
+      transform: translateX(-50%);
+      z-index: 40;
+      pointer-events: none;
+    }
+
+    .bubble {
+      display: block;
+      width: 140px;
+      aspect-ratio: 1 / 1;
+      background: #f5efe6;
+      border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+      opacity: 0;
+      transform: translateY(0) scale(0.8);
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .bubble.show {
+      animation:
+        bubbleRise 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+        bubbleWobble 3.2s ease-in-out 2.4s infinite;
+    }
+
+    @keyframes bubbleRise {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.72);
+      }
+      20% {
+        opacity: 1;
+      }
+      65% {
+        transform: translateY(-230px) scale(1.04);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(-200px) scale(1);
+      }
+    }
+
+    @keyframes bubbleWobble {
+      0% {
+        border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+        transform: translateY(-200px) translateX(0px) rotate(0deg);
+      }
+      25% {
+        border-radius: 50% 50% 46% 54% / 54% 46% 52% 48%;
+        transform: translateY(-204px) translateX(4px) rotate(0.8deg);
+      }
+      50% {
+        border-radius: 57% 43% 52% 48% / 45% 55% 47% 53%;
+        transform: translateY(-196px) translateX(-4px) rotate(-0.8deg);
+      }
+      75% {
+        border-radius: 47% 53% 44% 56% / 50% 50% 43% 57%;
+        transform: translateY(-203px) translateX(3px) rotate(0.5deg);
+      }
+      100% {
+        border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+        transform: translateY(-200px) translateX(0px) rotate(0deg);
+      }
+    }
+
+    .page-transition-bubble {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: 140px;
+      aspect-ratio: 1 / 1;
+      background: #f5efe6;
+      border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+      transform: translate(-50%, -50%) scale(0.2);
+      opacity: 0;
+      z-index: 99999;
+      pointer-events: none;
+    }
+
+    .page-transition-bubble.expand {
+      opacity: 1;
+      animation: slowBubbleExpand 3.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes slowBubbleExpand {
+      0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+      }
+      18% {
+        transform: translate(-50%, -50%) scale(1.2);
+        border-radius: 51% 49% 48% 52% / 49% 51% 47% 53%;
+      }
+      42% {
+        transform: translate(-50%, -50%) scale(4);
+        border-radius: 53% 47% 50% 50% / 46% 54% 49% 51%;
+      }
+      68% {
+        transform: translate(-50%, -50%) scale(10);
+        border-radius: 48% 52% 47% 53% / 52% 48% 51% 49%;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(24);
+        border-radius: 0%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        min-height: auto;
+        padding: 28px 18px 240px;
+      }
+
+      .text-block {
+        position: static;
+        width: 100%;
+        max-width: none;
+        text-align: left;
+        margin-bottom: 42px;
+        font-size: clamp(11px, 2.5vw, 14px);
+      }
+
+      .top-left {
+        font-size: clamp(13px, 3vw, 18px);
+      }
+
+      .middle-right,
+      .bottom-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="text-block top-left">SUDDENLY HE'S THERE.
+HE'S PERSPIRING.
+HE HAS NO JACKET.
+HIS HANDS ARE GENTLY CLASPED BEHIND HIS BACK.
+HE KNOWS ABOUT THE INVISIBLE ACOUSTIC TELEPHONE.
+HE SPEAKS WITH THE QUIET CONFIDENCE OF SOMEBODY WHO, APPARENTLY TALKING TO HIMSELF, KNOWS HE WILL BE HEARD.</div>
+
+    <div class="text-block middle-left">
+ONE OF THE BUTTONS OF HIS WHITE SHIRT IS UNDONE AND HE DOES IT UP WITH HIS RIGHT HAND WITHOUT GLANCING AT IT, WHILST CONTINUING HIS WHISPERING.
+THEY KNOW BEFORE THEY DIE THAT THEIR LIFE HAS SERVED FOR SOMETHING. 
+MANY WOULD ENVY THAT.
+EVEN IF THE CAUSE THEY BELIEVE IN WAS LOST? I ASK.
+I BELIEVE SO, YES. ANYWAY I'M NOT SURE HISTORY HAS WINNERS AND LOSERS ANY MORE THAN JUSTICE DOES. MARTYRS DIE TO HAVE A HOME EVERYWHERE. THAT'S WHY THEY ARE HONOURED BY THE POOR. WHEN THEY ARE HONOURED IN PALACES, THE MARTYRS, THEY REVOLT AND DISAPPEAR - LEAVING BEHIND ONLY THEIR RELICS.</div>
+
+    <div class="text-block middle-right">
+I WAIT FOR WHAT SEEMS A LONG WHILE. IT'S NOT THAT WITH AGE I HAVE BECOME MORE PATIENT. I'M AS IMPATIENT AS I WAS WHEN I WAS ELEVEN; IT'S SIMPLY THAT I BELIEVE IN TIME LESS. A DOG COMES UP TO ME WAGGING ITS TAIL. DOGS IN BOLOGNA ARE RARE. THE DOG'S MISTRESS SCOLDS IT, FROWNS AT ME AND WALKS ON, REMEMBERING, AND AT THE SAME TIME FATALLY FORGETTING, HER YOUTH.
+HE MOPS HIS BROW.</div>
+
+    <div class="text-block bottom-left">
+HE PASSES HIS THUMB SLOWLY ALONG HIS LOWER LIP.
+THERE HAVE ALWAYS BEEN RUMOURS. THEY'RE INEVITABLE. THEY HELP US TO COME TO TERMS WITH WHAT IS FORCEFULLY DENIED AND MAY BE TRUE.
+HE DABS AT HIS MOUTH WITH HIS HANDKERCHIEF. 
+WHEN HE TAKES IT AWAY, HIS MOUTH IS SMILING.</div>
+
+    <div class="text-block bottom-right">
+HE PEERS THROUGH HIS GLASSES AT ME.
+MARTYRS ARE ENVIABLE. THEY'RE TO BE PITIED FOR THE PAIN THEY SUFFER, FOR AT ONE MOMENT IT IS PAIN, VERY HARSH PAIN. YET THEY ARE ALSO ENVIABLE.
+I NOD.
+THEY HAVE LEARNT HOW TO BE TOUCHED - THAT IS THE SPECIAL GIFT OF MARTYRS, WARRIORS NEVER LEARN IT.</div>
+  </main>
+
+  <div class="bubble-wrap">
+    <a href="9.html" class="bubble" id="whiteBubble" aria-label="Go to page 9"></a>
+  </div>
+
+  <div class="page-transition-bubble" id="pageTransitionBubble"></div>
+
+  <script>
+    const bubble = document.getElementById("whiteBubble");
+    const transitionBubble = document.getElementById("pageTransitionBubble");
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        bubble.classList.add("show");
+      }, 500);
+    });
+
+    if (bubble && transitionBubble) {
+      bubble.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const target = this.getAttribute("href");
+        const rect = this.getBoundingClientRect();
+
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        transitionBubble.style.left = centerX + "px";
+        transitionBubble.style.top = centerY + "px";
+        transitionBubble.style.width = rect.width + "px";
+
+        transitionBubble.classList.add("expand");
+        document.body.style.overflow = "hidden";
+
+        setTimeout(() => {
+          window.location.href = target;
+        }, 3000);
+      });
+    }
+  </script>
+</body>
+</html>

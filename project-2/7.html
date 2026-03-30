@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+body {
+  font-family: "Fira Code", monospace;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+    .page {
+      width: min(900px, 100%);
+    }
+
+    .typewriter {
+      font-size: clamp(18px, 2vw, 28px);
+      line-height: 1.7;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      word-wrap: break-word;
+    }
+
+    .word {
+      opacity: 0;
+      display: inline-block;
+      transform: translateY(8px);
+      animation: popWord 0.1s forwards;
+    }
+
+    @keyframes popWord {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cursor {
+      display: inline-block;
+      margin-left: 20px;
+      animation: blink 0.3 s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+.red-bubble-wrap {
+  position: fixed;
+  left: 50%;
+  bottom: -180px;
+  transform: translateX(-50%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.red-bubble {
+  display: block;
+  width: 140px;
+  aspect-ratio: 1 / 1;
+  background: #8b261e;
+  border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+  opacity: 0;
+  transform: translateY(0) scale(0.8);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.red-bubble.show {
+  animation:
+    bubbleRise 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    bubbleWobble 3.2s ease-in-out 2.4s infinite;
+}
+
+@keyframes bubbleRise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.72);
+  }
+  20% {
+    opacity: 1;
+  }
+  65% {
+    transform: translateY(-230px) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-200px) scale(1);
+  }
+}
+
+@keyframes bubbleWobble {
+  0% {
+    border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+    transform: translateY(-200px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    border-radius: 50% 50% 46% 54% / 54% 46% 52% 48%;
+    transform: translateY(-204px) translateX(4px) rotate(0.8deg);
+  }
+  50% {
+    border-radius: 57% 43% 52% 48% / 45% 55% 47% 53%;
+    transform: translateY(-196px) translateX(-4px) rotate(-0.8deg);
+  }
+  75% {
+    border-radius: 47% 53% 44% 56% / 50% 50% 43% 57%;
+    transform: translateY(-203px) translateX(3px) rotate(0.5deg);
+  }
+  100% {
+    border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+    transform: translateY(-200px) translateX(0px) rotate(0deg);
+  }
+}
+
+/* full-screen transition overlay */
+.page-transition-bubble {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 140px;
+  aspect-ratio: 1 / 1;
+  background: #8b261e;
+  border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.page-transition-bubble.expand {
+  opacity: 1;
+  animation: slowBubbleExpand 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slowBubbleExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    border-radius: 54% 46% 49% 51% / 47% 53% 45% 55%;
+  }
+  18% {
+    transform: translate(-50%, -50%) scale(1.2);
+    border-radius: 51% 49% 48% 52% / 49% 51% 47% 53%;
+  }
+  42% {
+    transform: translate(-50%, -50%) scale(4);
+    border-radius: 53% 47% 50% 50% / 46% 54% 49% 51%;
+  }
+  68% {
+    transform: translate(-50%, -50%) scale(10);
+    border-radius: 48% 52% 47% 53% / 52% 48% 51% 49%;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(24);
+    border-radius: 0%;
+  }
+}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="typewriter" id="typewriter"></div>
+    <div class="page-transition-bubble" id="pageTransitionBubble"></div>
+    <div class="red-bubble-wrap">
+  <a href="8.html" class="red-bubble" aria-label="next"></a>
+</div>
+  </main>
+  <script>
+const paragraphs = [
+`When I arrive at the church, there is nobody else. I'm alone and I hang the tenda, folded as it was four times over itself on the counter, on the wrought iron railing which surrounds the Compianto group at the level of my knees.
+There I wait. It crosses my mind that a tenda, as well as being a blind for keeping sunlight out, may also be one for keeping grief in, and for cultivating determination.`,
+
+`If you stand against a particular pilaster and look diagonally across the octagon to the corresponding one on the other side, and if somebody happens to be standing there, you can talk to them, and they can talk to you, and your voices will be very distinct and loud, however many people are passing between you, and nobody else will hear your words. The idea of a secret is stood on its head. To share a secret here you move far apart, the words resound in public, and only the two of you hear them.
+My premonition is that if I wait by one of the pilasters in question, he may come.`
+];
+
+const container = document.getElementById("typewriter");
+const bubble = document.querySelector(".red-bubble");
+
+let pIndex = 0;
+let wIndex = 0;
+let currentP = null;
+
+function showBubble() {
+  if (bubble) {
+    bubble.classList.add("show");
+  }
+}
+
+function typeParagraph() {
+  if (pIndex >= paragraphs.length) {
+    setTimeout(showBubble, 700);
+    return;
+  }
+
+  if (!currentP) {
+    currentP = document.createElement("p");
+    container.appendChild(currentP);
+  }
+
+  const words = paragraphs[pIndex].split(" ");
+
+  if (wIndex < words.length) {
+    const span = document.createElement("span");
+    span.className = "word";
+    span.textContent = words[wIndex];
+
+    currentP.appendChild(span);
+    currentP.appendChild(document.createTextNode(" "));
+
+    wIndex++;
+    setTimeout(typeParagraph, 140);
+  } else {
+    pIndex++;
+    wIndex = 0;
+    currentP = null;
+    setTimeout(typeParagraph, 700);
+  }
+}
+
+typeParagraph();
+
+  </script>
+ <script>
+const bubbleLink = document.getElementById("redBubble");
+const transitionBubble = document.getElementById("pageTransitionBubble");
+
+if (bubbleLink && transitionBubble) {
+  bubbleLink.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const target = this.getAttribute("href");
+    const rect = this.getBoundingClientRect();
+
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    transitionBubble.style.left = centerX + "px";
+    transitionBubble.style.top = centerY + "px";
+    transitionBubble.style.width = rect.width + "px";
+
+    transitionBubble.classList.add("expand");
+
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+      window.location.href = target;
+    }, 2400);
+  });
+}
+</script>
+</body>
+</html>
