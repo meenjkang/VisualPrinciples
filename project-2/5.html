@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>5</title>
+
+<style>
+:root {
+  --ink: #1f1b18;
+  --card: rgba(255,255,255,0.85);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Fira Code", monospace;
+  background: #efefef;
+  overflow: hidden;
+}
+
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.map-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.line-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  pointer-events: none;
+  object-position: center center;
+}
+
+.intro {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  z-index: 3;
+}
+
+.outro {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 3;
+}
+
+.intro p,
+.outro p {
+  font-size: 12px;
+    max-width: 500px;
+  min-width:200px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card {
+  position: absolute;
+  width: 13%;
+  height: 12%;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 1vw;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.2s ease;
+}
+
+.card span {
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.c1 { left: 33%; top: 8%; transform: rotate(10deg); }
+.c2 { left: 48%; top: 32%; transform: rotate(-2deg); }
+.c3 { left: 60%; top: 33%; transform: rotate(4deg); }
+.c4 { left: 75%; top: 31%; transform: rotate(-18deg); }
+.c5 { left: 36%; top: 47%; transform: rotate(-15deg); }
+.c6 { left: 50%; top: 70%; transform: rotate(-28deg); }
+.c7 { left: 63%; top: 72%; transform: rotate(-12deg); }
+.c8 { left: 74%; top: 66%; transform: rotate(-2deg); }
+
+.c1:hover { transform: rotate(10deg) scale(1.05); }
+.c2:hover { transform: rotate(-2deg) scale(1.05); }
+.c3:hover { transform: rotate(4deg) scale(1.05); }
+.c4:hover { transform: rotate(-18deg) scale(1.05); }
+.c5:hover { transform: rotate(-15deg) scale(1.05); }
+.c6:hover { transform: rotate(-28deg) scale(1.05); }
+.c7:hover { transform: rotate(-12deg) scale(1.05); }
+.c8:hover { transform: rotate(-2deg) scale(1.05); }
+
+.line-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  z-index: 0;
+}
+
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<div class="map-wrap">
+  <a href="6.html" class="line-link">
+    <img src="assets/line.png" alt="" class="line-map">
+  </a>
+
+    <a href="#" class="card c1"><span>Your creditors</span></a>
+    <a href="#" class="card c2"><span>Your secret love</span></a>
+    <a href="#" class="card c3"><span>Your sworn enemy</span></a>
+    <a href="#" class="card c4"><span>Your favourite coffee shop</span></a>
+    <a href="#" class="card c5"><span>Your mother</span></a>
+    <a href="#" class="card c6"><span>Your dentist</span></a>
+    <a href="#" class="card c7"><span>Your local office of unemployment</span></a>
+    <a href="#" class="card c8"><span>Your oldest friend</span></a>
+  </div>
+
+  <!-- TEXT -->
+  <section class="intro">
+    <p>
+      For those living here, the arcades are a kind of personal agenda, made of stone, brick and cobbles. You can visit:
+    </p>
+  </section>
+
+  <section class="outro">
+    <p>
+      You can keep all these rendezvous without ever being exposed to the sky. And what difference does this make to the facts of your life? None. Yet under the arcades the echoes of those facts sound different. And in the evening pleasure and desolation take their evening stroll along the arcades and walk hand in hand.
+    </p>
+  </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4</title>
+
+  <style>
+    :root {
+      --bg: #ddd2c6;
+      --ink: #2d2824;
+      --accent: #9a1f1b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Fira Code', monospace;
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .arch-wrap {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: min(108vw, 820px);
+      min-width: 420px;
+      z-index: 1;
+    }
+
+    .arch {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .window-link {
+      position: absolute;
+      left: 64%;
+      bottom: 54%;
+      border-radius: 3px;
+      width: 6%;
+      height: 6%;
+
+      background: #9a1f1b;
+      opacity: 0.6;
+      transform: translate(-50%, 50%);
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .window-link:hover {
+      opacity: 0.85;
+    }
+
+    .text-block {
+      position: absolute;
+      top: 28%;
+      left: 10%;
+
+      width: min(36vw, 520px);
+      min-width: 230px;
+      z-index: 2;
+    }
+
+    .text-block p {
+      font-size: 12px;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* 📱 RESPONSIVE */
+    @media (max-width: 1000px) {
+      .arch-wrap {
+        width: min(40vw, 300px);
+      }
+
+      .text-block {
+        left: 6%;
+        top: 24%;
+        width: min(60vw, 400px);
+      }
+
+      .text-block p {
+        font-size: 12px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- ARCH -->
+    <div class="arch-wrap">
+      <img src="assets/arch.png" class="arch">
+
+      <a href="5.html" class="window-link"></a>
+    </div>
+
+    <div class="text-block">
+      <p>
+In the Piazza Maggiore some steps lead up to the east face of the Basilica of St Petronius, which, like many of Bologna's historic buildings is constructed in brick. For centuries people have sat on these steps to watch what's happening in the square and to notice the minute differences between yesterday and today. I'm sitting on these steps.
+</p>
+<br>
+<p>
+No traffic except bicycles. I notice that some people crossing the square, when they are more or less at its centre, pause and lean their backs against an invisible wall of an invisible tower of air, which reaches towards the sky, and there they glance upwards to check the clouds or the sky's emptiness. In conversations about tomorrow's weather opinions here continually differ.
+      </p>
+      <br>
+<p>
+    I leave the piazza and wander east towards the university.
+There are continuous arcades on both sides of the street.
+People here argue not only about tomorrow's weather, but about how many kilometres of arcades there are crossing the city.
+</p>
+    </div>
+
+  </main>
+
+</body>
+</html>

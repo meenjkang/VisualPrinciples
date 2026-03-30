@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6</title>
+  <style>
+    :root {
+      --bg: #4c463f;
+      --text: #f3eee8d8;
+      --accent: #d7d0c8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: "Fira Code", monospace;
+      color: var(--text);
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .text-block {
+      position: relative;
+      z-index: 2;
+      width: min(760px, 62vw);
+      padding: 20px 0 40px 38px;
+    }
+
+    .text-block p {
+      font-size: 15px;
+      line-height: 1.38;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 26px;
+      color: var(--text);
+    }
+
+    .text-block p:last-child {
+      margin-bottom: 0;
+    }
+
+.paragraph-wobble {
+  display: block;
+  animation: paragraphTremor 1.5s infinite alternate;
+  will-change: transform;
+}
+
+.paragraph-wobble:nth-of-type(2) {
+  animation-delay: 0.03s;
+}
+
+.paragraph-wobble:nth-of-type(3) {
+  animation-delay: 0.06s;
+}
+
+.paragraph-wobble:nth-of-type(4) {
+  animation-delay: 0.09s;
+}
+
+@keyframes paragraphTremor {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(0px, 0.2px) rotate(-0.1deg);
+  }
+  50% {
+    transform: translate(0.2px, 0px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-0.1px, -0.2px) rotate(-0.3deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0.1deg);
+  }
+
+}
+
+    .wine-wrap {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: min(40vw, 520px);
+      min-width: 260px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .wine-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    @media (max-width: 1000px) {
+      .text-block {
+        width: min(68vw, 620px);
+        padding-left: 24px;
+      }
+
+      .text-block p {
+        font-size: 13px;
+      }
+
+      .wine-wrap {
+        width: min(42vw, 420px);
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .page {
+        min-height: 100vh;
+        padding-bottom: 220px;
+      }
+
+      .text-block {
+        width: calc(100% - 32px);
+        padding: 16px 16px 32px 16px;
+      }
+
+      .text-block p {
+        font-size: 11px;
+        line-height: 1.42;
+        margin-bottom: 18px;
+      }
+
+.wine-wrap {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: min(56vw, 520px);
+  min-width: 260px;
+  z-index: 1;
+
+  pointer-events: none;
+}
+      }
+
+.wine {
+  position: absolute;
+  bottom: 50%;
+  left: 40%;
+
+  width: 80px;
+  height: 80px;
+  border-radius: 30%;
+  background: rgba(154, 0, 0, 0.49);
+  transform: translateX(-50%);
+  z-index: 0;
+
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+<div class="wine-wrap">
+  <img src="assets/wine.png" alt="" class="wine-img">
+  <a href="7.html" class="wine"></a>
+</div>
+
+    <div class="text-block">
+      <p class="paragraph-wobble">
+        Sometimes the trail called for a taxi to take us cross-country. To cheer the Tour de France as the riders came in at the finish of the day's stint. To watch a fisherman's boat leaving at night a quayside, an oil lamp on its mast, flame flickering and never going out. To search for a megalith one could lie on — like I'm now lying on this step in the Piazza Maggiore.
+      </p>
+
+      <p class="paragraph-wobble">
+        All these finds which we came upon together, were as secret as wrapped presents. In fact more secret, for, once unwrapped they still remained secrets. He would put his finger with the wart on it to his lips, as a sign to remind me not to tell, to keep it to myself.
+      </p>
+
+      <p class="paragraph-wobble">
+        In the Via Caprarie we are going to find a kilo of passatelli in a paper bag, that looks as if it was made to hold truffles. After Easter, during the summer heat, the Bolognese stop eating lasagne and tagliatelle which are too heavy, and move on to passatelli, a pasta in brodo. You want the list of ingredients? 400 gr. white bread crumbs, 240 gr. parmesan cheese, 1 teaspoon of flour, 6 eggs, 1 small nutmeg, 50 gr. butter?
+      </p>
+
+      <p class="paragraph-wobble">
+        In the Via Marsala we'll eat the best mortadella in the world. Mortadella was invented here at the beginning of the 17th century. Its name comes from the fact that it is seasoned with myrtle berries. When it's good, it's eaten in chunks, not thin slices. With it, drink a white wine from Alto Adige. He raises his glass to touch mine. Now some coffee? A merchant in the Via Porta Nuova. Here, as you see, the coffees are listed with the year of their harvest-ing, like wines. There are good years and poor ones. Time will tell. Coffees from all over the world, Brasil Sul de Minas. Java Wib. India Parchment. Let's go straight to the best. Blue Mountain from Jamaica. When they receive a new delivery of this coffee, they put it, each night, in the safe along with the bank notes! After drinking it, the taste stays in the mouth for fifty minutes. It keeps the whole brain company. Lying on the step I keep my eyes shut. When you can taste it no more in your mouth, go to the Church of Santa Maria della Vita.
+      </p>
+    </div>
+
+    <div class="wine-wrap" aria-hidden="true">
+      <img src="assets/wine.png" alt="" class="wine-img">
+    </div>
+  </main>
+</body>
+</html>
