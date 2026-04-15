@@ -68,9 +68,31 @@
 <script>
 const glow = document.querySelector('.cursor-glow');
 
+// move cursor
 document.addEventListener('mousemove', (e) => {
   glow.style.left = e.clientX + 'px';
   glow.style.top = e.clientY + 'px';
 });
+
+// generate random color
+function randomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return { r, g, b };
+}
+
+// apply random gradient on load
+const { r, g, b } = randomColor();
+
+glow.style.background = `
+  radial-gradient(circle,
+    rgba(${r}, ${g}, ${b}, 0.65) 0%,
+    rgba(${r}, ${g}, ${b}, 0.15) 40%,
+    rgba(${r}, ${g}, ${b}, 0.05) 60%,
+    transparent 70%
+  )
+`;
+</script>
 </script>
 </body>
