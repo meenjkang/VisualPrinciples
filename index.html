@@ -66,15 +66,15 @@
 
 </div>
 <script>
+
 const glow = document.querySelector('.cursor-glow');
 
-// move cursor
 document.addEventListener('mousemove', (e) => {
   glow.style.left = e.clientX + 'px';
   glow.style.top = e.clientY + 'px';
 });
 
-// generate random color
+
 function randomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
@@ -82,7 +82,7 @@ function randomColor() {
   return { r, g, b };
 }
 
-// apply random gradient on load
+
 const { r, g, b } = randomColor();
 
 glow.style.background = `
@@ -93,6 +93,16 @@ glow.style.background = `
     transparent 70%
   )
 `;
+
+const messages = [
+  "Welcome to my class website.",
+  "You found my website!",
+  "Hey.",
+  "Song of the day: Ten by Fred Again.."
+];
+
+document.querySelector("p").textContent =
+  messages[Math.floor(Math.random() * messages.length)];
 </script>
 </script>
 </body>
