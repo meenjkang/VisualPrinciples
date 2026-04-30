@@ -1,103 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>the clover and the bee</title>
-  <style>
-    body{
-      font-family: Helvetica, Arial, sans-serif;
-      font-size: 12px;
-      line-height: 1.45;
-      letter-spacing: 0.005em;
-      text-align: left;
-      font-style: normal;
-      font-weight: 400;
-      text-transform: none;
-    }
-    h2{
-      font-size: 14px;
-      line-height: 0.5;
-      letter-spacing: 0.02em;
-      font-weight: 700;
-      text-align: left;
-      font-style: normal;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    h3{
-      font-size: 11px;
-      line-height: 0.5;
-      letter-spacing: 0.04em;
-      font-weight: 700;
-      text-align: left;
-      font-style: normal;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    p{
-      font-size: 12px;
-      line-height: 1.55;
-      letter-spacing: 0.01em;
-      font-weight: 400;
-      text-transform: none;
-      text-align: left;
-      font-style: normal;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    em{
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      text-transform: none;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    strong{
-      font-weight: 700;
-      font-style: normal;
-      letter-spacing: 0.02em;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    li{
-      font-size: 12px;
-      line-height: 1.6;
-      letter-spacing: 0.01em;
-      font-weight: 400;
-      text-transform: none;
-      text-align: left;
-      font-style: normal;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    blockquote{
-      font-size: 15px;
-      line-height: 1.55;
-      letter-spacing: 0.01em;
-      font-weight: 400;
-      text-transform: none;
-      text-align: left;
-      font-style: normal;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-    hr{
-      text-align: left;
-      font-style: normal;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      text-transform: none;
-      font-family: Helvetica, Arial, sans-serif;
-      line-height: 1.2;
-      font-size: 16px;
-    }
-  </style>
-</head>
-<body>
-  <h2 id="the-clover-the-bee">the clover and the bee.</h3>
-  <p><em>100 West Lockwood Avenue · Webster Groves, MO 63119</em></p>
-  <blockquote>
-    <p>Breakfast: Mon–Thu 7am–11am<br>Lunch: Daily 11am–2pm<br>Brunch: Fri–Sun 7am–2pm</p>
-  </blockquote>
-  <h3 id="clover-wine-bar">wine bar</h3>
-  <p>Wed–Sat · open @ 5pm<br></p>
-  <hr>
+<meta charset="UTF-8">
+<title>16</title>
+<style>
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+  }
 
-  <h3 id="coffee">coffee- 8/12/16 oz</h3>
+  input {
+    display: none;
+  }
+
+  .page {
+    min-height: 100vh;
+    padding: 40px;
+    background: #fffdf5;
+    color: #1c1c1c;
+  }
+
+  label {
+    display: inline-block;
+    border: 1px solid currentColor;
+    padding: 12px 18px;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  #wine-toggle:checked ~ .page {
+    background: #2a070d;
+    color: #f7e8d8;
+  }
+
+  #wine-toggle:checked ~ .page label::after {
+    content: " brunch";
+  }
+
+  label::after {
+    content: " wine bar";
+  }
+
+  .menu {
+    border: 1px solid currentColor;
+    padding: 20px;
+    max-width: 600px;
+  }
+</style>
+</head>
+
+<body>
+  <input type="checkbox" id="wine-toggle">
+
+  <div class="page">
+    <label for="wine-toggle">switch to</label>
+
+    <h1>The Clover & The Bee</h1>
+    <p>made fresh daily with love.</p>
+
+    <div class="menu">
+      <h2>Menu</h2>
+     <h3 id="coffee">coffee- 8/12/16 oz</h3>
   <ul>
     <li>espresso — 3.00</li>
     <li>cortado — 4.00</li>
@@ -278,6 +241,7 @@
   <hr>
 
   <p><strong>chips:</strong> jalapeno, BBQ, salt & vinegar, regular</p>
-  <hr>
+    </div>
+  </div>
 </body>
 </html>
