@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="brunch">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>20</title>
+
+  <style>
+:root{
+  --bg: #f4e198;
+  --paper: #fffaf0;
+  --ink: #24351f;
+  --muted: rgba(36,53,31,.68);
+  --accent: #6f8f3f;
+  --accent2: #d6a84f;
+  --chip: rgba(111,143,63,.14);
+  --shadow: 0 10px 30px rgba(36,53,31,.08);
+
+  --titleFont: Georgia, "Times New Roman", serif;
+  --uiFont: Georgia, "Times New Roman", serif;
+  --mono: Georgia, "Times New Roman", serif;
+}
+
+[data-theme="wine"]{
+  --bg: #140709;
+  --paper: #241014;
+  --ink: #f4d39a;
+  --muted: rgba(244,211,154,.68);
+  --accent: #7f1124;
+  --accent2: #d89a43;
+  --chip: rgba(216,154,67,.15);
+  --shadow: 0 18px 55px rgba(0,0,0,.45);
+}
+
+    * {
+      box-sizing: border-box;
+      letter-spacing: 0rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+body {
+  margin: 0;
+  font-family: var(--uiFont);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+    .is-hidden {
+      display: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+        }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: var(--titleFont);
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 220px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(129, 96, 96, 0.7);
+      font-size: 10px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    html[data-theme="wine"] .pill {
+      background: rgba(255,255,255,.06);
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--chip);
+    }
+
+.btn {
+  appearance: none;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: var(--ink);
+  padding: 10px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font-family: var(--uiFont);
+}
+
+    html[data-theme="wine"] .btn {
+      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 80px;
+    }
+
+    .hero {
+      margin-top: 26px;
+      background:
+        linear-gradient(135deg, rgba(47,143,87,.12), rgba(242,198,210,.18)),
+        rgba(255,255,255,.55);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    html[data-theme="wine"] .hero {
+      background:
+        linear-gradient(135deg, rgba(181,30,58,.22), rgba(240,201,139,.08)),
+        rgba(255,255,255,.04);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 18px;
+    }
+
+    .hero-card {
+      grid-column: 1 / -1;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 16px;
+    }
+
+    html[data-theme="wine"] .hero-card {
+      background: rgba(255,255,255,.05);
+    }
+
+    .hero h2 {
+      font-family: var(--titleFont);
+      font-weight: 800;
+      font-style: italic;
+      margin: 0 0 10px;
+      font-size: clamp(15px, 4vw, 25px);
+      text-transform: lowercase;
+      line-height: 1.1;
+    }
+
+    .hero-poem {
+      margin: 0 0 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.5);
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    html[data-theme="wine"] .hero-poem {
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero-poem p {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    .hero-poem cite {
+      display: block;
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    .hero-card-inner {
+      display: grid;
+      grid-template-columns: 1fr clamp(160px, 28%, 260px);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-card-text p {
+      margin: 6px 0 0;
+      font-family: var(--titleFont);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero-card-media {
+      overflow: hidden;
+      aspect-ratio: 12 / 9;
+    }
+
+    .hero-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .meta div {
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .meta b {
+      color: var(--ink);
+    }
+
+.grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+  .panel {
+  background: var(--paper);
+  overflow: hidden;
+  transition: background .35s ease, box-shadow .35s ease;
+  border: 1px solid var(--chip);
+  box-shadow: var(--shadow);
+}
+
+html[data-theme="wine"] .panel {
+  background: rgba(255,255,255,.04);
+  box-shadow: var(--shadow);
+}
+
+.panel header {
+  padding: 14px 16px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.panel header::after {
+  content: "collapse";
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.panel.is-collapsed header::after {
+  content: "open";
+}
+
+.content {
+  padding: 14px 16px 16px;
+}
+
+.panel.is-collapsed .content {
+  display: none;
+}
+
+    .item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 9px 0;
+    }
+
+    .name {
+      font-size: 13px;
+      line-height: 1.25;
+      text-transform: lowercase;
+    }
+
+    .desc {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+      text-transform: lowercase;
+    }
+
+    .price {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    html[data-theme="wine"] .price {
+      color: var(--accent2);
+    }
+
+    .subsection {
+      margin-top: 14px;
+      padding-top: 14px;
+    }
+
+    .subsection h4 {
+      margin: 0 0 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      color: var(--muted);
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    footer .mini {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .hero-card-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        grid-column: 1;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .actions,
+      .brand {
+        min-width: 0;
+      }
+    }
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-grid,
+  .hero-card-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    grid-column: 1;
+  }
+
+  .actions,
+  .brand {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid,
+  .meta {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-inner {
+    justify-content: space-between;
+  }
+
+  .pill {
+    display: none;
+  }
+}
+
+      .topbar-inner {
+        justify-content: space-between;
+      }
+
+      .pill {
+        display: none;
+      }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <h1>the clover & the bee</h1>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="pill" id="modePill" aria-live="polite">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="modeLabel">brunch?</span>
+        </div>
+
+        <button class="btn" id="toggleTheme" type="button" aria-pressed="false">
+          <span id="btnLabel">wine bar?</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="hero" id="hero" aria-label="Intro">
+      <div class="hero-grid">
+
+        <h2 id="heroTitle">made fresh daily with love.</h2>
+
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-card-text">
+              <p>100 west lockwood ave, webster groves, MO</p>
+
+              <div class="meta">
+                <div><b>breakfast</b><br>mon–thur 7am–11am</div>
+                <div><b>lunch</b><br>daily 11am–2pm</div>
+                <div><b>brunch</b><br>fri–sun 7am–2pm</div>
+                <div><b>wine bar</b><br>wed–sat 5pm</div>
+              </div>
+            </div>
+
+            <div class="hero-card-media">
+              <img id="heroPhoto" src="brunch.png" alt="brunch menu" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="cafe" style="margin-top:26px;">
+      <div class="grid">
+
+<article class="panel is-collapsed">
+          <header>
+            <h3>coffee</h3>
+            <span class="tag">8oz · 12oz · 16oz</span>
+          </header>
+          <div class="content">
+            <div class="item"><div><div class="name">espresso</div></div><div class="price">3.00</div></div>
+            <div class="item"><div><div class="name">cortado</div></div><div class="price">4.00</div></div>
+            <div class="item"><div><div class="name">americano</div></div><div class="price">3.50 · 3.75 · 4.25</div></div>
+            <div class="item"><div><div class="name">cappuccino</div></div><div class="price">4.00 · 4.25 · 4.50</div></div>
+            <div class="item"><div><div class="name">latte</div></div><div class="price">4.25 · 4.75 · 5.25</div></div>
+            <div class="item"><div><div class="name">chai latte</div></div><div class="price">4.75 · 5.00 · 5.25</div></div>
+            <div class="item"><div><div class="name">sunny day latte</div><div class="desc">(herbal)</div></div><div class="price">4.50 · 4.75 · 5.50</div></div>
+            <div class="item"><div><div class="name">cayenne mocha</div><div class="desc">(drip + infused)</div></div><div class="price">4.50 · 5.00 · 5.50</div></div>
+            <div class="item"><div><div class="name">hot chocolate</div></div><div class="price">3.25 · 4.25 · 5.25</div></div>
+            <div class="item"><div><div class="name">matcha latte</div></div><div class="price">5.00 · 5.25 · 5.50</div></div>
+            <div class="item"><div><div class="name">drip coffee</div></div><div class="price">3.00 · 3.50 · 4.00</div></div>
+            <div class="item"><div><div class="name">cold brew</div></div><div class="price">5.75</div></div>
+            <div class="item"><div><div class="name">frozen coffee</div><div class="desc">(chocolate or caramel)</div></div><div class="price">6.00</div></div>
+            <div class="item"><div><div class="name">la cosecha cold coffee</div></div><div class="price">5.00</div></div>
+
+            <div class="subsection">
+              <h4>organic flavor shots</h4>
+              <div class="desc">vanilla, hazelnut, lavender, cardamom, orange, almond, mint, caramel, chocolate, white chocolate, rose, pistachio, pumpkin, blackberry, coconut</div>
+              <div class="item"><div><div class="name">add flavor</div></div><div class="price">.75</div></div>
+            </div>
+
+            <div class="subsection">
+              <h4>milk</h4>
+              <div class="desc">whole, skim, almond, oat</div>
+              <div class="item"><div><div class="name">alternative milk</div></div><div class="price">.75</div></div>
+            </div>
+          </div>
+        </article>
+
+ <article class="panel is-collapsed">
+          <header>
+            <h3>tea</h3>
+          </header>
+          <div class="content">
+            <div class="item"><div><div class="name">iron goddess of mercy</div><div class="desc">(green)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">moroccan jasmine mint</div><div class="desc">(green)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">italian grey</div><div class="desc">(black)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">edith grey</div><div class="desc">(black)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">hibiscus elixir</div><div class="desc">(herbal)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">royal treatment</div><div class="desc">(herbal)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">chamomile</div><div class="desc">(herbal)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">cup of sunshine</div><div class="desc">(herbal)</div></div><div class="price">3.75 · 4.00</div></div>
+            <div class="item"><div><div class="name">ginger strawberry</div><div class="desc">(bottle)</div></div><div class="price">5.00</div></div>
+          </div>
+        </article>
+
+<article class="panel is-collapsed">
+          <header>
+            <h3>juice & others</h3>
+          </header>
+          <div class="content">
+            <div class="item"><div><div class="name">orange juice</div></div><div class="price">3</div></div>
+            <div class="item"><div><div class="name">apple juice</div></div><div class="price">3</div></div>
+            <div class="item"><div><div class="name">lemonade</div></div><div class="price">3</div></div>
+            <div class="item"><div><div class="name">hello lavender lemonade</div></div><div class="price">9</div></div>
+            <div class="item"><div><div class="name">hello kathy</div><div class="desc">(green)</div></div><div class="price">9</div></div>
+            <div class="item"><div><div class="name">hello karen</div><div class="desc">(red)</div></div><div class="price">9</div></div>
+            <div class="item"><div><div class="name">hello ginger shot</div></div><div class="price">5</div></div>
+
+            <div class="subsection">
+              <h4>n/a</h4>
+              <div class="item"><div><div class="name">cbd seltzer</div></div><div class="price">6</div></div>
+              <div class="item"><div><div class="name">topo chico / mountain valley</div></div><div class="price">4</div></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="food" style="margin-top:34px;">
+      <h2 style="margin:0 0 10px;font-family:var(--titleFont);text-transform:lowercase;font-size:22px;">breakfast & brunch</h2>
+
+      <div class="grid">
+
+<article class="panel is-collapsed">
+          <header><h3>pastries & sweets</h3></header>
+          <div class="content">
+            <div class="item"><div><div class="name">bagel union bagel</div><div class="desc">(everything, sea salt, cinnamon raisin or gf)</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">biscuit whipped butter & jam</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">cinnamon roll</div><div class="desc">(cream cheese frosting)</div></div><div class="price">7</div></div>
+            <div class="item"><div><div class="name">hot fudge sundae poptart</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">key lime danish</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">citrus rosemary cake</div><div class="desc">(gf)*</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">morning bun</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">garlic spinach feta quiche</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">sugarwitch ice-cream sandwich</div></div><div class="price">8</div></div>
+          </div>
+        </article>
+
+<article class="panel is-collapsed">
+          <header><h3>breakfast</h3></header>
+          <div class="content">
+            <div class="item"><div><div class="name">the classic</div><div class="desc">egg + cheese on potato roll · choice of bacon, sausage or avocado</div></div><div class="price">9</div></div>
+            <div class="item"><div><div class="name">stone ground grits</div><div class="desc">cheddar · poached eggs · tomato ragu + crusty bread</div></div><div class="price">15</div></div>
+            <div class="item"><div><div class="name">cold smoked salmon</div><div class="desc">everything bagel · chive cream cheese · crispy capers + cucumber salad</div></div><div class="price">16</div></div>
+            <div class="item"><div><div class="name">avocado toast</div><div class="desc">calabrian · lemon · + radish</div></div><div class="price">12</div></div>
+            <div class="item"><div><div class="name">strata</div><div class="desc">ham · bell peppers · onions · white cheddar · served with mixed greens</div></div><div class="price">14</div></div>
+            <div class="item"><div><div class="name">labneh granola bowl*</div><div class="desc">marcona almond granola · peaches · blueberries · mango coulis + basil</div></div><div class="price">10</div></div>
+            <div class="item"><div><div class="name">breakfast burrito</div><div class="desc">ground beef or avocado · egg · black bean · pico de gallo · hash brown · chihuahua cheese + flour tortilla</div></div><div class="price">10</div></div>
+            <div class="item"><div><div class="name">cottage cheese</div><div class="desc">balsamic onions · cherry tomatoes · basil gel + pine nuts</div></div><div class="price">10</div></div>
+            <div class="item"><div><div class="name">biscuits & gravy</div><div class="desc">classic sausage gravy</div></div><div class="price">11</div></div>
+            <div class="item"><div><div class="name">add poached eggs</div></div><div class="price">5</div></div>
+          </div>
+        </article>
+
+<article class="panel is-collapsed">
+          <header><h3>sides</h3></header>
+          <div class="content">
+            <div class="item"><div><div class="name">bacon</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">sausage patty (2)</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">chicken sausage links (3)</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">poached eggs (2)</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">side of grits</div></div><div class="price">4</div></div>
+            <div class="item"><div><div class="name">hash brown with chimichurri cream</div></div><div class="price">3</div></div>
+            <div class="item"><div><div class="name">pasta salad</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">mixed greens</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">fruit</div></div><div class="price">4</div></div>
+          </div>
+        </article>
+
+<article class="panel is-collapsed">
+          <header><h3>soups & salads</h3></header>
+          <div class="content">
+            <div class="item"><div><div class="name">three cheese cauliflower soup</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">watermelon gazpacho</div></div><div class="price">6</div></div>
+
+            <div class="subsection">
+              <h4>salads</h4>
+              <div class="item"><div><div class="name">soup and salad</div><div class="desc">choice of soup & small salad</div></div><div class="price">14</div></div>
+              <div class="item"><div><div class="name">chopped salad</div><div class="desc">iceberg · hearts of palm · pepperoni · mozzarella · red pepper · crispy lentils + white balsamic vinaigrette</div></div><div class="price">15</div></div>
+              <div class="item"><div><div class="name">shaved brussels sprout salad*</div><div class="desc">apple · dried cherries · white cheddar · candied pecans + maple vinaigrette</div></div><div class="price">15</div></div>
+              <div class="item"><div><div class="name">green goddess salad</div><div class="desc">mixed greens · feta · blueberries · aleppo pepper · sunflower seeds + crispy shallots</div></div><div class="price">15</div></div>
+              <div class="item"><div><div class="name">sweet potato and broccolini salad (v)</div><div class="desc">peruvian peppers · avocado · chickpeas · honey cumin vinaigrette · tahini yogurt drizzle</div></div><div class="price">15</div></div>
+              <div class="item"><div><div class="name">farro bowl*</div><div class="desc">pistachio pesto · chicken · jalapeño · red onion + peach vinaigrette</div></div><div class="price">16</div></div>
+            </div>
+
+            <div class="subsection">
+              <h4>add to any salad</h4>
+              <div class="item"><div><div class="name">grilled chicken</div></div><div class="price">6</div></div>
+              <div class="item"><div><div class="name">poached eggs</div></div><div class="price">5</div></div>
+              <div class="item"><div><div class="name">bacon</div></div><div class="price">3</div></div>
+              <div class="item"><div><div class="name">seared salmon</div></div><div class="price">6</div></div>
+            </div>
+          </div>
+        </article>
+
+<article class="panel is-collapsed">
+          <header><h3>sandwiches</h3></header>
+          <div class="content">
+            <div class="desc" style="margin:0 0 12px;">served hot or cold with choice of chips or pasta salad + 3</div>
+            <div class="item"><div><div class="name">the cheese steak</div><div class="desc">shaved ribeye · onions · mama’s lil peppers + hoagie roll (whiz, provolone, american or cooper’s sharp)</div></div><div class="price">16</div></div>
+            <div class="item"><div><div class="name">italian</div><div class="desc">capicola · salami · mortadella · red onion · lettuce · tomato · pepperoncini · vinaigrette · provolone + hoagie roll</div></div><div class="price">15</div></div>
+            <div class="item"><div><div class="name">the veggie (v)*</div><div class="desc">jalapeño pistachio pesto · mixed greens · cucumber · shredded carrots · tomato · sweet vinaigrette + hoagie roll</div></div><div class="price">15</div></div>
+            <div class="item"><div><div class="name">roast turkey</div><div class="desc">bacon · dijonnaise · sharp american · lettuce · onion · tomato + hoagie roll</div></div><div class="price">15</div></div>
+            <div class="item"><div><div class="name">ham and cheese</div><div class="desc">cherry smoked ham · crispy coppa · provel · calabrian aioli · lettuce · tomato · onion + hoagie roll</div></div><div class="price">15</div></div>
+            <div class="item"><div><div class="name">pastrami</div><div class="desc">house smoked + smoked brisket · pickles · thousand island · provel + hoagie roll</div></div><div class="price">16</div></div>
+            <div class="item"><div><div class="name">chopped chicken</div><div class="desc">grilled chicken · mozzarella · bacon · ranch · lettuce · tomato · onion + hoagie roll</div></div><div class="price">15</div></div>
+            <div class="item"><div><div class="name">tuna salad</div><div class="desc">dill · yuzu mayo · onion · lettuce · tomato + hoagie roll</div></div><div class="price">16</div></div>
+            <div class="item"><div><div class="name">blt</div><div class="desc">pancetta · lettuce · tomato · garlic pepper aioli + bianco bread</div></div><div class="price">15</div></div>
+
+            <div class="subsection">
+              <h4>chips</h4>
+              <div class="desc">jalapeño · bbq · salt & vinegar · regular</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section id="winebar" style="margin-top:34px;">
+      <div class="grid">
+
+<article class="panel is-collapsed">
+          <header><h3>wine by the glass</h3></header>
+          <div class="content">
+
+            <div class="subsection" style="margin-top:0;padding-top:0;">
+              <h4>bubbles</h4>
+              <div class="item"><div><div class="name">bisol “jeio” prosecco doc</div><div class="desc">veneto, italy · bouquet of honey & pear · delicate, refreshing sparkler</div></div><div class="price">12 / 48</div></div>
+              <div class="item"><div><div class="name">perelada “stars” brut cava rosé</div><div class="desc">catalonia, spain · pale pink · apricot jam on toast</div></div><div class="price">14 / 56</div></div>
+            </div>
+
+            <div class="subsection">
+              <h4>rosé</h4>
+              <div class="item"><div><div class="name">bargemone rosé</div><div class="desc">provence, france · strawberry, white flowers, peach, herbal</div></div><div class="price">14 / 52</div></div>
+            </div>
+
+            <div class="subsection">
+              <h4>white</h4>
+              <div class="item"><div><div class="name">nine hats riesling</div><div class="desc">columbia valley, washington · zesty citrus, apple, pear</div></div><div class="price">14 / 56</div></div>
+              <div class="item"><div><div class="name">pax mahle chenin blanc</div><div class="desc">mendocino, california · green apple, lemongrass, mineral</div></div><div class="price">15 / 60</div></div>
+              <div class="item"><div><div class="name">copain daybreak white blend</div><div class="desc">sonoma valley · honeysuckle, ripe melon, clean finish</div></div><div class="price">14 / 56</div></div>
+              <div class="item"><div><div class="name">m. chapoutier “belleruche” blanc</div><div class="desc">rhône, france · apricot, fennel, elderflower</div></div><div class="price">15 / 60</div></div>
+              <div class="item"><div><div class="name">stoller chardonnay</div><div class="desc">willamette valley, oregon · lemon curd, herbs, orange oil</div></div><div class="price">15 / 60</div></div>
+            </div>
+
+            <div class="subsection">
+              <h4>red</h4>
+              <div class="item"><div><div class="name">wonderwerk’s big juicy</div><div class="desc">watsonville, california · chilled · red berries, soft tannins</div></div><div class="price">13 / 52</div></div>
+              <div class="item"><div><div class="name">elizabeth rose pinot noir</div><div class="desc">napa valley · ripe cherry, vanilla, rose petals</div></div><div class="price">15 / 60</div></div>
+              <div class="item"><div><div class="name">badia di morrona “caligiano” chianti</div><div class="desc">tuscany, italy · cherry, raspberry, herbs</div></div><div class="price">13 / 52</div></div>
+              <div class="item"><div><div class="name">day wines “wrapped around your finger”</div><div class="desc">rogue valley, oregon · red fruit, baking spice, tobacco</div></div><div class="price">15 / 60</div></div>
+              <div class="item"><div><div class="name">château pegau grenache/syrah</div><div class="desc">côtes du rhône · blackberry, blueberry, chocolate</div></div><div class="price">14 / 56</div></div>
+            </div>
+          </div>
+        </article>
+
+<article class="panel is-collapsed">
+          <header><h3>drinks</h3></header>
+          <div class="content">
+
+            <div class="subsection" style="margin-top:0;padding-top:0;">
+              <h4>cocktails</h4>
+              <div class="item"><div><div class="name">the o.g. martini</div><div class="desc">vodka, gin, dry vermouth, orange bitters, olive juice</div></div><div class="price">14</div></div>
+              <div class="item"><div><div class="name">black manhattan</div><div class="desc">rye, cardamaro, cynar, walnut bitters</div></div><div class="price">14</div></div>
+              <div class="item"><div><div class="name">gin & tonic</div><div class="desc">our version of the classic</div></div><div class="price">14</div></div>
+              <div class="item"><div><div class="name">the classic mimosa</div><div class="desc">fresh orange juice, prosecco or grapefruit</div></div><div class="price">12</div></div>
+              <div class="item"><div><div class="name">* mimosa carafe</div></div><div class="price">38</div></div>
+              <div class="item"><div><div class="name">bloody mary</div><div class="desc">house made mix (regular or spicy)</div></div><div class="price">12</div></div>
+              <div class="item"><div><div class="name">* bloody mary carafe</div></div><div class="price">38</div></div>
+              <div class="item"><div><div class="name">irish coffee</div><div class="desc">house drip & five farms cream liqueur</div></div><div class="price">10</div></div>
+            </div>
+
+            <div class="item"><div><div class="name">fernet branca</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">jeppson’s malört</div></div><div class="price">5</div></div>
+            <div class="item"><div><div class="name">underberg</div></div><div class="price">5</div></div>
+
+            <div class="subsection">
+              <h4>cocktails on draft</h4>
+              <div class="item"><div><div class="name">espresso martini</div><div class="desc">vodka, espresso, cold brew, coffee liqueur</div></div><div class="price">14</div></div>
+              <div class="item"><div><div class="name">the clover spritz</div><div class="desc">cappelletti aperitivo, lemon, sparkling wine</div></div><div class="price">14</div></div>
+            </div>
+
+            <div class="subsection">
+              <h4>boozy slushies</h4>
+              <div class="item"><div><div class="name">spicy paloma</div><div class="desc">cappelletti, grapefruit, lime</div></div><div class="price">14</div></div>
+            </div>
+
+          </div>
+        </article>
+
+<article class="panel is-collapsed">
+          <header><h3>beer & non-alcohol</h3></header>
+          <div class="content">
+            <div class="item"><div><div class="name">perennial on lockwood golden eternity kölsch</div><div class="desc">4.2%, 12oz</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">perennial on lockwood ollie ollie oxen free</div><div class="desc">4.2%, 12oz</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">three floyds gumballhead</div><div class="desc">wheat ale, 5.6%, 12oz</div></div><div class="price">7</div></div>
+            <div class="item"><div><div class="name">side project ddbh alora ipa</div><div class="desc">7%, 12oz</div></div><div class="price">12</div></div>
+            <div class="item"><div><div class="name">tilquin oude pinot noir</div><div class="desc">lambic style, 8%, 750ml</div></div><div class="price">72</div></div>
+            <div class="item"><div><div class="name">leitz eins zwei zero riesling</div><div class="desc">n/a sparkling, 375ml</div></div><div class="price">9</div></div>
+            <div class="item"><div><div class="name">assorted n/a beers</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">casamara club alta amaro leisure soda</div></div><div class="price">6</div></div>
+            <div class="item"><div><div class="name">aval rosé cider</div><div class="desc">6%, 12oz</div></div><div class="price">6</div></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="mini">
+        <span>© <span id="year"></span> the clover & the bee</span>
+        <span aria-hidden="true">·</span>
+        <span>order at the counter</span>
+      </div>
+      <div class="mini">
+        <a href="#cafe">café</a>
+        <a href="#food">breakfast</a>
+        <a href="#winebar">wine bar</a>
+      </div>
+    </footer>
+
+  </div>
+
+ <script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById("toggleTheme");
+    const btnLabel = document.getElementById("btnLabel");
+    const modeLabel = document.getElementById("modeLabel");
+    const heroTitle = document.getElementById("heroTitle");
+    const year = document.getElementById("year");
+    const heroPhoto = document.getElementById("heroPhoto");
+
+    year.textContent = new Date().getFullYear();
+
+    function setTheme(theme) {
+      root.setAttribute("data-theme", theme);
+
+      const isWine = theme === "wine";
+
+      if (heroPhoto) {
+        heroPhoto.src = isWine ? "winebar.jpg" : "brunch.png";
+        heroPhoto.alt = isWine ? "wine bar" : "brunch menu";
+      }
+
+      btn.setAttribute("aria-pressed", String(isWine));
+      btnLabel.textContent = isWine ? "brunch?" : "wine bar?";
+      modeLabel.textContent = isWine ? "wine bar" : "breakfast & brunch";
+      heroTitle.textContent = isWine
+        ? "after hours in the neighborhood."
+        : "made fresh daily with love.";
+
+      const cafe = document.getElementById("cafe");
+      const food = document.getElementById("food");
+      const winebar = document.getElementById("winebar");
+
+      if (cafe) cafe.classList.toggle("is-hidden", isWine);
+      if (food) food.classList.toggle("is-hidden", isWine);
+      if (winebar) winebar.classList.toggle("is-hidden", !isWine);
+    }
+
+    setTheme("brunch");
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "brunch";
+      setTheme(current === "wine" ? "brunch" : "wine");
+    });
+
+    const panels = document.querySelectorAll(".panel");
+
+    panels.forEach((panel) => {
+      const header = panel.querySelector("header");
+
+      if (header) {
+        header.addEventListener("click", () => {
+          panel.classList.toggle("is-collapsed");
+        });
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
