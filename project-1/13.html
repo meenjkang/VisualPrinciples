@@ -43,13 +43,21 @@
     border: 1px solid #c3e962;
     padding: 20px;
     margin-bottom: 25px;
+    background: rgba(255,255,255,0.5);
   }
 
   .section h2 {
     font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0rem;
     margin: 0 0 10px 0;
+  }
+
+  .section h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0rem;
+    margin: 18px 0 8px 0;
   }
 
   ul {
@@ -60,6 +68,34 @@
 
   li {
     margin-bottom: 6px;
+    line-height: 1.25;
+  }
+
+  em {
+    font-size: 12px;
+  }
+
+  .price {
+    float: right;
+    margin-left: 10px;
+  }
+
+  .note {
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .wine-box {
+    border: 4px double #5f6678;
+    padding: 20px;
+    background: white;
+  }
+
+  .wine-footer {
+    text-align: center;
+    color: #2fab43;
+    font-size: 22px;
+    margin-top: 15px;
   }
 
   .clear {
@@ -73,46 +109,228 @@
 
 <header>
   <h1>the clover 🍀 & the bee 🐝</h1>
-  <p>100 west lockwood avenue · webster groves, mo</p>
+  <p>100 west lockwood avenue · webster groves, mo 63119</p>
+  <p><strong>order at the counter</strong></p>
 </header>
 
 <div class="column left">
+
   <div class="section">
     <h2>coffee</h2>
     <ul>
-      <li>espresso — 3.00</li>
-      <li>latte — 4.25 / 4.75 / 5.25</li>
-      <li>cold brew — 5.75</li>
+      <li>espresso <span class="price">3.00</span></li>
+      <li>cortado <span class="price">4.00</span></li>
+      <li>americano <span class="price">3.50 / 3.75 / 4.25</span></li>
+      <li>cappuccino <span class="price">4.00 / 4.25 / 4.50</span></li>
+      <li>latte <span class="price">4.25 / 4.75 / 5.25</span></li>
+      <li>chai latte <span class="price">4.75 / 5.25 / 5.75</span></li>
+      <li>matcha latte <span class="price">5.00 / 5.50 / 6.00</span></li>
+      <li>sunny day latte <em>(herbal)</em> <span class="price">4.50 / 4.75 / 5.50</span></li>
+      <li>hot chocolate <span class="price">3.25 / 4.25 / 5.25</span></li>
+      <li>drip coffee <span class="price">3.00 / 3.50 / 4.00</span></li>
+      <li>cold brew <span class="price">6.00</span></li>
+      <li>frozen coffee <em>(chocolate or caramel)</em> <span class="price">6.25</span></li>
+      <li>cayenne mocha <span class="price">5.00 / 5.50 / 6.00</span></li>
     </ul>
+  </div>
+
+  <div class="section">
+    <h2>organic flavors</h2>
+    <p><em>vanilla, hazelnut, lavender, cardamom, orange, almond, mint, caramel, chocolate, white chocolate, rose, pistachio, blackberry, coconut, pumpkin</em></p>
+    <p><span class="price">flavors $1</span></p>
+  </div>
+
+  <div class="section">
+    <h2>milk</h2>
+    <p><em>whole, skim, almond, oat</em> <span class="price">alternative milks $1</span></p>
   </div>
 
   <div class="section">
     <h2>tea</h2>
     <ul>
-      <li>iron goddess of mercy — 3.75 / 4.00</li>
-      <li>chamomile — 3.75 / 4.00</li>
+      <li>iron goddess of mercy (green) <span class="price">3.75 / 4.00</span></li>
+      <li>moroccan jasmine mint (green) <span class="price">3.75 / 4.00</span></li>
+      <li>italian grey (black) <span class="price">3.75 / 4.00</span></li>
+      <li>edith grey (black) <span class="price">3.75 / 4.00</span></li>
+      <li>hibiscus elixir (herbal) <span class="price">3.75 / 4.00</span></li>
+      <li>royal treatment (herbal) <span class="price">3.75 / 4.00</span></li>
+      <li>chamomile (herbal) <span class="price">3.75 / 4.00</span></li>
+      <li>cup of love (herbal) <span class="price">3.75 / 4.00</span></li>
+      <li>cup of sunshine (herbal) <span class="price">3.75 / 4.00</span></li>
+      <li>small batch ginger strawberry (iced) <span class="price">5.00</span></li>
     </ul>
   </div>
-</div>
 
-<div class="column">
+  <div class="section">
+    <h2>juice</h2>
+    <ul>
+      <li>orange juice <span class="price">3</span></li>
+      <li>apple juice <span class="price">3</span></li>
+      <li>lemonade <span class="price">3</span></li>
+      <li>Hello Ginger Shot <span class="price">5</span></li>
+      <li>Hello Karen (Pink) <span class="price">10</span></li>
+      <li>Hello Kathy (Green) <span class="price">10</span></li>
+      <li>Hello Luna (Blue) <span class="price">10</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>n/a</h2>
+    <ul>
+      <li>kopu sparkling <span class="price">7</span></li>
+      <li>athletic lite/ipa <span class="price">6</span></li>
+      <li>best day brewing kolsch <span class="price">6</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>pastries & sweets</h2>
+    <ul>
+      <li>bagel union bagel <em>everything, sea salt, cinnamon raisin or GF</em> <span class="price">5</span></li>
+      <li>biscuit <em>whipped butter & jam</em> <span class="price">6</span></li>
+      <li>cinnamon roll <em>cream cheese frosting</em> <span class="price">7</span></li>
+      <li>strawberry poptart <span class="price">6</span></li>
+      <li>hot honey cherry danish <span class="price">6</span></li>
+      <li>blueberry chocolate muffin <span class="price">6</span></li>
+      <li>citrus rosemary cake (gf)* <span class="price">5</span></li>
+      <li>morning bun <span class="price">6</span></li>
+      <li>cheddar and chive quiche <span class="price">6</span></li>
+    </ul>
+  </div>
+
   <div class="section">
     <h2>breakfast</h2>
     <ul>
-      <li>the classic — 9</li>
-      <li>avocado toast — 12</li>
-      <li>biscuits & gravy — 11</li>
+      <li>the classic<br><em>egg + cheese on potato roll, choice of bacon, sausage or avocado</em> <span class="price">9</span></li>
+      <li>fried mortadella sandwich<br><em>fried mortadella, over hard egg, coopers sharp, strawberry jalapeno jam + potato roll</em> <span class="price">12</span></li>
+      <li>stone ground grits<br><em>cheddar, poached eggs, tomato ragu + crusty bread</em> <span class="price">15</span></li>
+      <li>cold smoked salmon<br><em>everything bagel, chive cream cheese, crispy capers + cucumber salad</em> <span class="price">16</span></li>
+      <li>avocado toast<br><em>calabrian, lemon, + radish</em> <span class="price">12</span></li>
+      <li>labneh granola bowl*<br><em>seasonal berries, maple granola, candied nut mix, honey, basil, olive oil</em> <span class="price">10</span></li>
+      <li>breakfast burrito<br><em>ground beef or avocado, egg, black bean, pico de gallo, hash brown, chihuahua cheese + flour tortilla</em> <span class="price">10</span></li>
+      <li>house made biscuits and gravy<br><em>black pepper gravy, calabrian maple sausage</em> <span class="price">11</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>sides</h2>
+    <ul>
+      <li>bacon <span class="price">5</span></li>
+      <li>calabrian maple sausage patty (3) <span class="price">5</span></li>
+      <li>chicken sausage links (3) <span class="price">6</span></li>
+      <li>poached eggs (2) <span class="price">5</span></li>
+      <li>side of grits <span class="price">4</span></li>
+      <li>hash brown with chimichurri cream <span class="price">3</span></li>
+      <li>pasta salad <span class="price">5</span></li>
+      <li>mixed greens <span class="price">5</span></li>
+      <li>fruit <span class="price">4</span></li>
+    </ul>
+    <p class="note">*contains common allergen<br>consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of food borne illness</p>
+  </div>
+
+</div>
+
+<div class="column">
+
+  <div class="section wine-box">
+    <h2>cocktails</h2>
+    <ul>
+      <li>The Classic Mimosa<br><em>fresh orange juice, prosecco or grapefruit</em> <span class="price">12</span></li>
+      <li>*Mimosa Carafe <span class="price">38</span></li>
+      <li>Bloody Mary<br><em>house made mix (regular or spicy)</em> <span class="price">12</span></li>
+      <li>*Bloody Mary Carafe <span class="price">38</span></li>
+      <li>Irish Coffee<br><em>house drip & five farms cream liqueur</em> <span class="price">10</span></li>
+    </ul>
+
+    <h2>cocktails on draft</h2>
+    <ul>
+      <li>espresso martini<br><em>vodka, espresso, cold brew, coffee liqueur</em> <span class="price">14</span></li>
+      <li>the clover spritz<br><em>cappelletti aperitivo, lemon, sparkling wine</em> <span class="price">14</span></li>
+      <li>spicy margarita<br><em>tequila, hot honey, lime</em> <span class="price">14</span></li>
+      <li>sangria rose<br><em>strawberry, blackberry, apple, peach, curacao, amaro, sparkling wine</em> <span class="price">14</span></li>
+    </ul>
+
+    <h2>boozy slushies</h2>
+    <ul>
+      <li>paloma<br><em>cappelletti, grapefruit, lime</em> <span class="price">14</span></li>
+      <li>campari<br><em>campari, orange, prosecco</em> <span class="price">14</span></li>
+    </ul>
+
+    <h2>wine</h2>
+    <ul>
+      <li>rosé <span class="price">14</span></li>
+      <li>white <span class="price">14</span></li>
+      <li>red <span class="price">14</span></li>
+      <li>(sparkling) stars cava rose <span class="price">14/56</span></li>
+      <li>(sparkling) jeio prosecco <span class="price">10/38</span></li>
+      <li>leitz n/a riesling <span class="price">10</span></li>
+      <li>alone time (250ml can)<br><em>natural wine spritzer</em> <span class="price">12</span></li>
+      <li>subject to change<br><em>sparkling piquette</em> <span class="price">12</span></li>
+    </ul>
+
+    <h2>beer</h2>
+    <ul>
+      <li>ollie ollie oxen free session IPA <span class="price">7</span></li>
+      <li>gumball head wheat pale ale <span class="price">7</span></li>
+      <li>aval rose cider <span class="price">7</span></li>
+    </ul>
+  </div>
+
+  <div class="wine-footer">
+    <strong>Clover Wine Bar</strong><br>
+    Wednesday-Saturday Open @ 5pm<br>
+    WINE | FOOD | COCKTAILS
+  </div>
+
+  <div class="section">
+    <h2>soups & salads</h2>
+    <ul>
+      <li>three cheese cauliflower soup <span class="price">6</span></li>
+      <li>cucumber gazpacho <span class="price">6</span></li>
+      <li>kale & lentil soup (v) <span class="price">6</span></li>
+    </ul>
+
+    <h3>soup and salad</h3>
+    <ul>
+      <li><em>choice of soup & small salad</em> <span class="price">14</span></li>
+    </ul>
+
+    <h3>salads</h3>
+    <ul>
+      <li>chopped salad<br><em>iceberg, hearts of palm, pepperoni, mozzarella, red pepper, crispy lentils + white balsamic vinaigrette</em> <span class="price">15</span></li>
+      <li>shaved brussels sprout salad*<br><em>apple, dried cherries, white cheddar, candied pecans + maple vinaigrette</em> <span class="price">15</span></li>
+      <li>little gem salad<br><em>little gem lettuce, feta buttermilk dressing, roasted tomatoes, dill, everything croutons, radish</em> <span class="price">15</span></li>
+      <li>roasted beet salad<br><em>beets, broccolini, peruvian peppers, avocado, chickpeas, honey cumin vinaigrette, tahini yogurt drizzle</em> <span class="price">15</span></li>
+      <li>strawberry and farro salad<br><em>mixed greens, goat cheese, balsamic, walnuts + pomegranate vinaigrette</em> <span class="price">16</span></li>
+    </ul>
+
+    <h3>add to any salad</h3>
+    <ul>
+      <li>grilled chicken <span class="price">6</span></li>
+      <li>bacon <span class="price">3</span></li>
+      <li>cold smoked salmon <span class="price">6</span></li>
+      <li>poached eggs <span class="price">5</span></li>
+      <li>seared salmon <span class="price">6</span></li>
     </ul>
   </div>
 
   <div class="section">
     <h2>sandwiches</h2>
+    <p><em>served hot or cold with choice of chips or pasta salad + 3</em></p>
     <ul>
-      <li>italian — 15</li>
-      <li>pastrami — 16</li>
-      <li>blt — 15</li>
+      <li>the cheese steak<br><em>shaved ribeye, onions, mama’s lil peppers + hoagie roll (choice of whiz, provolone, american or coopers sharp)</em> <span class="price">16</span></li>
+      <li>italian<br><em>capicola, salami, mortadella, red onion, lettuce, tomato, pepperoncini, vinaigrette, provolone + hoagie roll</em> <span class="price">15</span></li>
+      <li>the veggie (v)*<br><em>jalapeno pistachio pesto, mixed greens, cucumber, shredded carrots, tomato, sweet vinaigrette + hoagie roll</em> <span class="price">15</span></li>
+      <li>ham and cheese<br><em>comte, hot honey mustard, lettuce, tomato, pickle, red onion + brioche bun</em> <span class="price">15</span></li>
+      <li>roast turkey<br><em>bacon, avocado, lettuce, balsamic aioli + hoagie roll</em> <span class="price">15</span></li>
+      <li>pastrami<br><em>house smoked + smoked brisket, pickles, thousand island, provel cheese + hoagie roll</em> <span class="price">16</span></li>
+      <li>chopped chicken<br><em>grilled chicken, mozzarella, bacon, lettuce, tomato, onion, garlic pepper aioli + hoagie roll</em> <span class="price">15</span></li>
+      <li>tuna salad<br><em>dill, shallot, yuzu mayo, italian vin, lettuce, onion, tomato, on seeded hoagie</em> <span class="price">16</span></li>
     </ul>
+
+    <p><strong>-CHIPS:</strong> JALAPENO, BBQ, SALT & VINEGAR, REGULAR-</p>
   </div>
+
 </div>
 
 <div class="clear"></div>
